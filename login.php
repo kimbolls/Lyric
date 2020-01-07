@@ -31,7 +31,7 @@ else
             $_SESSION["UserID"] = $userID;
             $_SESSION["UserType"]=$row["UserType"];
 
-            header("Location:menu.php");
+            header("Location:homepage.php");
         }
         else{
             echo "<p style='color:red;'>Wrong Password!!! </p>";

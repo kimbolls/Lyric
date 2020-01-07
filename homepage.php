@@ -9,6 +9,7 @@ if(isset($_SESSION["UserID"])){
 <head>
 <title> Hi-Fi - Music Registration </title>
 <body>
+<center>
 <br>
 <h1> WELCOME, Hi <?php echo $_SESSION["UserID"];?> </h1>
 <p> Choose Your menu : </p>
@@ -27,7 +28,7 @@ if(isset($_SESSION["UserID"])){
     }
     ?>
     <a href="logout.php">Logout </a><br>
-
+</center>
 </body>
 </html>
 <?php 

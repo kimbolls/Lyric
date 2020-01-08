@@ -38,7 +38,7 @@ else
 	{
 		echo "Record has been updated into database";
 		echo "<br><br>";
-		echo "Click <a href='music_view.php'> here </a> to view pet list";
+		echo "Click <a href='music_view.php'> here </a> to view Music list";
 	}
 }
 ?>

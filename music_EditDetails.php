@@ -43,17 +43,32 @@ else
 		{
 			
 			?>
-			
-			<br><br>Song Name: <?php $baris['Song_Name']; ?>
-			<?php echo $baris['Song_Name'];?>
-			<br><br>Album Name: <input type="text" name="albumname" value="<?php echo $baris['Album_Name']; ?>" required>
-			<br><br>Artist Name: <input type="text" name="artistname" value=" <?php echo $baris['Artist_Name']; ?>" required>
-			<br><br>Feat Artist Name: <input type="text" name="featartistname" value=" <?php echo $baris['Featuring_Artist_Name']; ?>" required>
-			<br><br>Song Genre: <input type="text" name="songgenre" value=" <?php echo $baris['Song_Genre']; ?>" required>
+		<table>
+		<tr>
+			<th>Song Name: </th>
+			<td><?php echo $baris['Song_Name']; ?></th>
+		</tr>
+		
+		<tr>
+			<th>Album Name:</th>
+			<th> <input type="text" name="albumname" value="<?php echo $baris['Album_Name']; ?>" required></th>
+		</tr>
+		<tr>
+			<th>Artist Name: </th>
+			<th><input type="text" name="artistname" value=" <?php echo $baris['Artist_Name']; ?>" required></th>
+		</tr>
+		<tr>
+			<th>Feat Artist Name:</th>
+			<th><input type="text" name="featartistname" value=" <?php echo $baris['Featuring_Artist_Name']; ?>" required></th>
+		</tr>
+			<th>Song Genre: </th>
+			<th><input type="text" name="songgenre" value=" <?php echo $baris['Song_Genre']; ?>" required></th>
+		</tr>
+		</table>		
 			<?php
 		}
 			?>
-			<br><br>
+			
 			<input type="hidden" name="songname" value="<?php echo $songname ?>">
 			<input type="Submit" value="Update new details">
 			</form>

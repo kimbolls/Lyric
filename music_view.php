@@ -32,8 +32,8 @@ else
 			?>
 			<table border="1">
 		<tr>
-			<th> Album: </th>
 			<th> Song: </th>
+			<th> Album: </th>
 			<th> Artist:  </th>
 			<th> Feat Artist: </th>
 			<th> Genre: </th>
@@ -44,8 +44,8 @@ else
 				?>
 				
 				<tr>
-					<td><?php echo $baris['Album_Name']; ?></td>
 					<td><?php echo $baris['Song_Name']; ?></td>
+					<td><?php echo $baris['Album_Name']; ?></td>
 					<td><?php echo $baris['Artist_Name']; ?></td>
 					<td><?php echo $baris['Featuring_Artist_Name']; ?></td>
 					<td><?php echo $baris['Song_Genre']; ?></td>

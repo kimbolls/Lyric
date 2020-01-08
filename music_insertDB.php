@@ -25,7 +25,7 @@ if(!$link)
 }
 else
 {
-	$query = "INSERT into music  VALUES('$albumname','$songname','$artistname','$featartistname','$songgenre')";
+	$query = "INSERT into music  VALUES('$songname','$albumname','$artistname','$featartistname','$songgenre')";
 	$query_result = mysqli_query($link,$query);
 	
 	if(!$query_result)
@@ -40,12 +40,13 @@ else
 <center>
 <table border="border">
 <tr>
-	<th>Album Name</th>
-	<th><?php echo $albumname ?></th>
-</tr>
-<tr>
 	<th>Song Name </th>
 	<th><?php echo $songname ?></th>
+</tr>
+<tr>
+	<th>Album Name</th>
+	<th><?php echo $albumname ?></th>
+	
 </tr>
 <tr>
 	<th>Artist Name </th>

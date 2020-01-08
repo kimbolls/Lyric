@@ -8,7 +8,7 @@
 
 <?php
 
-$albumname = $_POST['albumname'];
+$songname = $_POST['songname'];
 
 
 $host = "localhost";
@@ -24,7 +24,7 @@ if(!$link)
 }
 else
 {
-	$queryGet = "select * from music where Album_Name = '$albumname' ";
+	$queryGet = "select * from music where Song_Name = '$songname' ";
 	$resultGet = mysqli_query($link,$queryGet);
 	
 	if(!$resultGet)
@@ -44,10 +44,9 @@ else
 			
 			?>
 			
-			<br><br>Album Name: <?php $selectedalbumname = $baris['Album_Name']; ?>
-			<?php echo $baris['Album_Name'];?>
-			
-			<br><br>Song Name: <input type="text" name="songname" value="<?php echo $baris['Song_Name']; ?>" required>
+			<br><br>Song Name: <?php $baris['Song_Name']; ?>
+			<?php echo $baris['Song_Name'];?>
+			<br><br>Album Name: <input type="text" name="albumname" value="<?php echo $baris['Album_Name']; ?>"
 			<br><br>Artist Name: <input type="text" name="artistname" value=" <?php echo $baris['Artist_Name']; ?>" required>
 			<br><br>Feat Artist Name: <input type="text" name="featartistname" value=" <?php echo $baris['Featuring_Artist_Name']; ?>" required>
 			<br><br>Song Genre: <input type="text" name="songgenre" value=" <?php echo $baris['Song_Genre']; ?>" required>

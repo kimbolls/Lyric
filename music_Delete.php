@@ -6,7 +6,7 @@
 <h3>Song Deleted</h3>
 
 <?php
-$albumname = $_POST['albumname'];
+$songname = $_POST['songname'];
 
 $host = "localhost";
 $user = "root";
@@ -21,7 +21,7 @@ if(!$link)
 }
 else
 {
-	$queryDelete = "delete from music where Album_Name = '$albumname' ";
+	$queryDelete = "delete from music where Song_Name = '$songname' ";
 	$resultDelete = mysqli_query($link,$queryDelete);
 	
 	if(!$resultDelete)

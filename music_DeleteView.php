@@ -50,9 +50,9 @@ else
 		{
 			?>
 			<tr>
-				<td><input type="radio" name="albumname" value="<?php echo $baris['Album_Name'];?>" required ></td>
-				<td><?php echo $baris['Album_Name'];?></td>
+				<td><input type="radio" name="musicname" value="<?php echo $baris['Song_Name'];?>" required ></td>
 				<td><?php echo $baris['Song_Name'];?></td>
+				<td><?php echo $baris['Album_Name'];?></td>
 				<td><?php echo $baris['Artist_Name'];?></td>
 				<td><?php echo $baris['Featuring_Artist_Name'];?></td>
 				<td><?php echo $baris['Song_Genre'];?></td>

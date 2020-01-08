@@ -35,8 +35,8 @@ else
 		<table border = "2">
 		<tr>
 			<th>Choose</th>
-			<th>Album Name</th>
 			<th>Song Name</th>
+			<th>Album Name</th>
 			<th>Artist Name</th>
 			<th>Featuring Artist Name</th>
 			<th>Song Genre</th>
@@ -51,11 +51,11 @@ else
 		
 		<tr>
 			<td><input type="radio" name="songname" value="<?php echo $baris['Song_Name'];?>" required></td>
-			<td><?php echo $baris['Song Name']; ?></td>
-			<td><?php echo $baris['Album Name']; ?></td>
-			<td><?php echo $baris['Artist Name']; ?></td>
-			<td><?php echo $baris['Featuring Artist Name']; ?></td>
-			<td><?php echo $baris['Song Genre']; ?></td>
+			<td><?php echo $baris['Song_Name']; ?></td>
+			<td><?php echo $baris['Album_Name']; ?></td>
+			<td><?php echo $baris['Artist_Name']; ?></td>
+			<td><?php echo $baris['Featuring_Artist_Name']; ?></td>
+			<td><?php echo $baris['Song_Genre']; ?></td>
 		</tr>
 <?php 
 	}

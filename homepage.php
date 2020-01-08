@@ -24,6 +24,8 @@ if(isset($_SESSION["UserID"])){
     else{
         ?>
     <a href="music_insert.html"> Register New Music </a> <br><br>
+    <a href="music_EditView.php"> Edit Music </a> <br><br>
+    <a href="music_delete.php"> Delete Music </a><br><br>
     <?php 
     }
     ?>

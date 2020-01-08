@@ -3,6 +3,7 @@
 <head><title> Update Song </title></head>
 
 <body>
+<center>
 <h3> Song Update View </h3>
 
 <?php
@@ -40,7 +41,7 @@ else
 			<th>Featuring Artist Name</th>
 			<th>Song Genre</th>
 		</tr>
-<form action="music_EditView.php" name="UpdateForm" method="POST">
+<form action="music_EditDetails.php" name="UpdateForm" method="POST">
 
 <?php 
 	
@@ -56,7 +57,7 @@ else
 			<td><?php echo $baris['Featuring Artist Name']; ?></td>
 			<td><?php echo $baris['Song Genre']; ?></td>
 		</tr>
-<?php
+<?php 
 	}
  ?>
 	</table>
@@ -70,6 +71,6 @@ else
 
  ?>
 
-
+</center>
 </body>
 </html>

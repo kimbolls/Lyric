@@ -42,7 +42,7 @@ else
 			<th>Feat Artist Name</th>
 			<th>Song Genre</th>
 		</tr>
-		<form action="music_DeleteDetails.php" name="DeleteForm" method="POST" onSubmit="return confirm('Are you sure?')">
+		<form action="music_Delete.php" name="DeleteForm" method="POST" onSubmit="return confirm('Are you sure?')">
 		
 		
 		<?php

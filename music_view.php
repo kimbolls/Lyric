@@ -44,11 +44,11 @@ else
 				?>
 				
 				<tr>
-					<td><?php echo $baris['Album Name']; ?></td>
-					<td><?php echo $baris['Song Name']; ?></td>
-					<td><?php echo $baris['Artist Name']; ?></td>
-					<td><?php echo $baris['Featuring Artist Name']; ?></td>
-					<td><?php echo $baris['Song Genre']; ?></td>
+					<td><?php echo $baris['Album_Name']; ?></td>
+					<td><?php echo $baris['Song_Name']; ?></td>
+					<td><?php echo $baris['Artist_Name']; ?></td>
+					<td><?php echo $baris['Featuring_Artist_Name']; ?></td>
+					<td><?php echo $baris['Song_Genre']; ?></td>
 				</tr>
 	
 <?php

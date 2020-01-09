@@ -2,6 +2,10 @@
 	
 <?php 
 
+function slug($z){
+	$z = str_replace("'", "''", $z);
+    return trim($z, "'");
+}
 
 session_start();
 
@@ -18,6 +22,7 @@ $artistname = $_POST['artistname'];
 $featartistname = $_POST['featartistname'];
 $songgenre = $_POST['songgenre'];
 $songlyric = $_POST['songlyric'];
+$songlyric = slug($songlyric);
 
 if(isset($featartistname))
 {
@@ -32,7 +37,7 @@ if(!$link)
 }
 else
 {
-	$query = "INSERT into music  VALUES('$songname','$albumname','$artistname','$featartistname','$songgenre','$songlyric')";
+	$query = "INSERT into `music` VALUES('$songname','$albumname','$artistname','$featartistname','$songgenre','$songlyric')";
 	$query_result = mysqli_query($link,$query);
 	
 	if(!$query_result)
@@ -95,7 +100,7 @@ else
 </tr>
 <tr>
 	<th>Song Lyric </th>
-	<th style="white-space: pre-wrap;"><?php echo $songlyric ?></th>
+	<th><?php echo $songlyric; ?></th>
 </tr>
 </table><br><br>
 <?php 

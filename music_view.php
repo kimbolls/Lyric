@@ -1,5 +1,11 @@
 <?php 
 
+function slug($z){
+    $z = preg_replace('/[^a-z0-9 -]+/', '', $z);
+    $z = str_replace('\n', '<br>', $z);
+    return trim($z);
+}
+
 session_start();
 
 if(isset($_SESSION["UserID"])){
@@ -97,7 +103,7 @@ else
 					<td><?php echo $baris['Artist_Name']; ?></td>
 					<td><?php echo $baris['Featuring_Artist_Name']; ?></td>
 					<td><?php echo $baris['Song_Genre']; ?></td>
-					<td style="white-space: pre-wrap;"><?php echo $baris['Song_Lyric']; ?></td>
+					<td><?php echo slug($baris['Song_Lyric']); ?></td>
 				</tr>
 	
 <?php

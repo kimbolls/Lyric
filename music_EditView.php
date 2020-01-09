@@ -14,7 +14,50 @@ if(isset($_SESSION["UserID"])){
 <script src="music_script.js"></script>
 
 <html>
+<style>	
+.container {
+  position: relative;
+  width: 100%;
+  height:50%;
+}
 
+.image {
+	
+margin-right:auto;
+margin-left:auto;
+position:relative;
+  opacity: 1;
+  display: block;
+  width: 30%;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%)
+}
+
+.container:hover .image {
+  opacity: 0.3;
+}
+
+.container:hover .middle {
+  opacity: 1;
+}
+
+.text {
+  background-color: #4CAF50;
+  color: white;
+  font-size: 16px;
+  padding: 16px 32px;
+}
+</style>
 <head><script src="music_script.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -56,7 +99,7 @@ if(isset($_SESSION["UserID"])){
   </div>
   </div>
   <br><br>
-<center>
+
 <?php
 
 $host = "localhost";
@@ -102,7 +145,14 @@ else
 		?>
 		
 		<tr>
-			<td><input type="radio" name="songname" value="<?php echo $baris['Song_Name'];?>" required></td>
+			<th><input type="radio" name="songname" value="<?php echo $baris['Song_Name'];?>" required>
+			<div class="container">
+  <img src="images\<?php echo $baris['Album_Image']; ?>"  class="image" >
+  <div class="middle">
+    <div class="text"><?php echo $baris['Song_Name']; ?></div>
+  </div>
+</div>
+	</td>
 			<td><?php echo $baris['Song_Name']; ?></td>
 			<td><?php echo $baris['Album_Name']; ?></td>
 			<td><?php echo $baris['Artist_Name']; ?></td>

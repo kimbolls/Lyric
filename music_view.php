@@ -85,6 +85,7 @@ else
 			?>
 			<table border="1">
 		<tr>
+			<th> View Details </th>
 			<th> Song: </th>
 			<th> Album: </th>
 			<th> Artist:  </th>
@@ -98,6 +99,7 @@ else
 				?>
 				
 				<tr>
+				<td><img src="images\<?php echo $baris['Album_Image']; ?>" style="border-radius: 8px;height:150px;width:150px;"></td>
 					<td><?php echo $baris['Song_Name']; ?></td>
 					<td><?php echo $baris['Album_Name']; ?></td>
 					<td><?php echo $baris['Artist_Name']; ?></td>

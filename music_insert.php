@@ -37,7 +37,7 @@ if(isset($_SESSION["UserID"])){
 	<br><br>
 	<center>	
 
-<form action="music_insertDB.php" method="POST" name="musicinput">
+<form action="music_insertDB.php" method="POST" name="musicinput" enctype="multipart/form-data">
 
 <table>
 <tr>
@@ -65,11 +65,11 @@ if(isset($_SESSION["UserID"])){
 	<th>Song Lyric </th>
 	<th><textarea name="songlyric" required></textarea></th>
 </tr>
-<!-- <tr>
+ <tr>
 	<th>Album Image</th>
 	<th><input type="file" name="albumimage" accept="image/*"></th>
 </tr>
-</tr>
+<!--
 <tr>
 	<th>Music Audio </th>
 	<th><input type="file" name="songaudio" accept="audio/*" ></th>

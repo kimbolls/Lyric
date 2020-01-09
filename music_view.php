@@ -84,6 +84,7 @@ else
 			<th> Artist:  </th>
 			<th> Feat Artist: </th>
 			<th> Genre: </th>
+			<th> Lyric: </th>
 		</tr>
 		
 		<?php	
@@ -96,6 +97,7 @@ else
 					<td><?php echo $baris['Artist_Name']; ?></td>
 					<td><?php echo $baris['Featuring_Artist_Name']; ?></td>
 					<td><?php echo $baris['Song_Genre']; ?></td>
+					<td style="white-space: pre-wrap;"><?php echo $baris['Song_Lyric']; ?></td>
 				</tr>
 	
 <?php

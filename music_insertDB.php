@@ -17,6 +17,7 @@ $songname = $_POST['songname'];
 $artistname = $_POST['artistname'];
 $featartistname = $_POST['featartistname'];
 $songgenre = $_POST['songgenre'];
+$songlyric = $_POST['songlyric'];
 
 if(isset($featartistname))
 {
@@ -27,11 +28,11 @@ $link = mysqli_connect($host,$username,$password,$database);
 
 if(!$link)
 {
-	die("Woi database tak konekted la sial " .mysqli_connect_error($link));
+	die("Woi database tak connected la sia " .mysqli_connect_error($link));
 }
 else
 {
-	$query = "INSERT into music  VALUES('$songname','$albumname','$artistname','$featartistname','$songgenre')";
+	$query = "INSERT into music  VALUES('$songname','$albumname','$artistname','$featartistname','$songgenre','$songlyric')";
 	$query_result = mysqli_query($link,$query);
 	
 	if(!$query_result)
@@ -91,6 +92,10 @@ else
 <tr>
 	<th>Song Genre </th>
 	<th><?php echo $songgenre ?></th>
+</tr>
+<tr>
+	<th>Song Lyric </th>
+	<th style="white-space: pre-wrap;"><?php echo $songlyric ?></th>
 </tr>
 </table><br><br>
 <?php 

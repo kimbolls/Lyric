@@ -61,6 +61,10 @@ if(isset($_SESSION["UserID"])){
 	<th>Song Genre </th>
 	<th><input type="text" name="songgenre" required></th>
 </tr>
+<tr>
+	<th>Song Lyric </th>
+	<th><textarea style="white-space: pre-wrap;" name="songlyric" required></textarea></th>
+</tr>
 <!-- <tr>
 	<th>Album Image</th>
 	<th><input type="file" name="albumimage" accept="image/*"></th>

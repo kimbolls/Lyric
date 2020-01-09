@@ -16,9 +16,10 @@ if(isset($_SESSION["UserID"])){
 <html>
 
 <head><script src="music_script.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<title> Hi-Fi - Music Record </title>
+<title> Hi-Fi - Music Record </title></head>
 <body>
 <?php 
     if($_SESSION["UserType"]=="Admin"){
@@ -99,8 +100,16 @@ else
 		while($baris = mysqli_fetch_array($resultGet,MYSQLI_BOTH))
 		{
 			?>
-			<tr>
-				<td><input type="radio" name="songname" value="<?php echo $baris['Song_Name'];?>" required ></td>
+			<tr><th><div class="container">
+  <img src="images\<?php echo $baris['Album_Image']; ?>"  class="image" >
+  <div class="middle">
+    
+   <input type="radio" name="songname" value="<?php echo $baris['Song_Name']; ?>" />
+
+  </div>
+</div>
+		</th>
+				
 				<td><?php echo $baris['Song_Name'];?></td>
 				<td><?php echo $baris['Album_Name'];?></td>
 				<td><?php echo $baris['Artist_Name'];?></td>

@@ -139,3 +139,12 @@ td><div class="container">
 
 external css
 <link rel="stylesheet" type="text/css" href="mystyle.css">
+
+------------------------------------
+
+Picture BUTTOn
+<button type="submit" name="songname" value="<?php echo $baris['Song_Name']; ?>";></td>
+			<img class="image" src="images\<?php echo $baris['Album_Image']; ?>" />
+			</button>
+		
+------------------------------------

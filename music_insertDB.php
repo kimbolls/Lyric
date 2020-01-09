@@ -4,7 +4,7 @@
 
 function slug($z){
 	$z = str_replace("'", "''", $z);
-    return trim($z, "'");
+    return $z;
 }
 
 session_start();
@@ -72,37 +72,9 @@ else
   <div class="w3-container">
 <center>
 <h1> YOUR MUSIC  </h1>
-</center>
+
   </div>
 </div><br><br>
-<center>
-<table border="border">
-<tr>
-	<th>Song Name </th>
-	<th><?php echo $songname ?></th>
-</tr>
-<tr>
-	<th>Album Name</th>
-	<th><?php echo $albumname ?></th>
-	
-</tr>
-<tr>
-	<th>Artist Name </th>
-	<th><?php echo $artistname ?></th>
-</tr>
-<tr>
-	<th>Featuring Artist Name </th>
-	<th><?php echo $featartistname ?></th>
-</tr>
-<tr>
-	<th>Song Genre </th>
-	<th><?php echo $songgenre ?></th>
-</tr>
-<tr>
-	<th>Song Lyric </th>
-	<th><?php echo $songlyric; ?></th>
-</tr>
-</table><br><br>
 <?php 
 echo "Your Music has been successfully uploaded!";
 	}
@@ -119,3 +91,4 @@ else{
     echo "<a href=loginmenu.html> Login </a>";
 }
 ?>
+

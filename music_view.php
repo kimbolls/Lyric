@@ -1,9 +1,9 @@
 <?php 
 
 function slug($z){
-    $z = preg_replace('/[^a-z0-9 -]+/', '', $z);
-    $z = str_replace('\n', '<br>', $z);
-    return trim($z);
+	$z = nl2br($z);
+	$z = str_replace("'", "'", $z);
+	return $z;
 }
 
 session_start();

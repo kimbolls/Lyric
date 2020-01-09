@@ -1,5 +1,11 @@
 <?php 
 
+function slug($z){
+	$z = nl2br($z);
+	$z = str_replace("'", "'", $z);
+	return $z;
+}
+
 session_start();
 
 if(isset($_SESSION["UserID"])){
@@ -108,6 +114,10 @@ else
 		</tr>
 			<th>Song Genre: </th>
 			<th><input type="text" name="songgenre" value=" <?php echo $baris['Song_Genre']; ?>" required></th>
+		</tr>
+		</tr>
+			<th>Song Lyric: </th>
+			<th><textarea type="text" name="songlyric" required><?php echo $baris['Song_Lyric']; ?></textarea></th>
 		</tr>
 		</table>		
 			<?php

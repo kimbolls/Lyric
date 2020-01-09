@@ -1,5 +1,11 @@
 <?php 
 
+function slug($z){
+	$z = nl2br($z);
+	$z = str_replace("'", "'", $z);
+	return $z;
+}
+
 session_start();
 
 if(isset($_SESSION["UserID"])){
@@ -85,6 +91,7 @@ else
 			<th>Artist Name</th>
 			<th>Featuring Artist Name</th>
 			<th>Song Genre</th>
+			<th>Song Lyric</th>
 		</tr>
 <form action="music_EditDetails.php" name="UpdateForm" method="POST">
 
@@ -101,6 +108,7 @@ else
 			<td><?php echo $baris['Artist_Name']; ?></td>
 			<td><?php echo $baris['Featuring_Artist_Name']; ?></td>
 			<td><?php echo $baris['Song_Genre']; ?></td>
+			<td><?php echo slug($baris['Song_Lyric']); ?></td>
 		</tr>
 <?php 
 	}

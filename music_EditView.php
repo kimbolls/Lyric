@@ -14,50 +14,10 @@ if(isset($_SESSION["UserID"])){
 <script src="music_script.js"></script>
 
 <html>
-<style>	
-.container {
-  position: relative;
-  width: 100%;
-  height:50%;
-}
+	<head>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
 
-.image {
-	
-margin-right:auto;
-margin-left:auto;
-position:relative;
-  opacity: 1;
-  display: block;
-  width: 200px;
-  transition: .5s ease;
-  backface-visibility: hidden;
-}
-
-.middle {
-  transition: .5s ease;
-  opacity: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%)
-}
-
-.container:hover .image {
-  opacity: 0.3;
-}
-
-.container:hover .middle {
-  opacity: 1;
-}
-
-.text {
-  background-color: #4CAF50;
-  color: white;
-  font-size: 16px;
-  padding: 16px 32px;
-}
-</style>
 <head><script src="music_script.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -154,7 +114,7 @@ else
 
   </div>
 </div>
-	</td>
+	</th>
 			<td><?php echo $baris['Song_Name']; ?></td>
 			<td><?php echo $baris['Album_Name']; ?></td>
 			<td><?php echo $baris['Artist_Name']; ?></td>

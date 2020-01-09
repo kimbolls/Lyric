@@ -117,7 +117,6 @@ else
 </table>
 <br>
 
-<!--Click <a href="music_insert.html"> HERE </a> to insert more musics -->
 </center>
 
 </body>

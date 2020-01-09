@@ -78,7 +78,7 @@ if ($uploadOk == 0) {
 
 display image 
 
-<td><img src="images\<?php echo $baris['Album_Image']; ?>"></td>
+<td><img src="images\<?php echo $baris['Album_Image']; ?>" style="border-radius: 8px;height:150px;width:150px;"></td>
 --------------------------
 
 upload image form 
@@ -86,3 +86,51 @@ upload image form
 <form action="music_insertDB.php" method="POST" name="musicinput"enctype="multipart/form-data" >
 
 ---------------------------
+hover style 
+<style>
+.container {
+  position: relative;
+  width: 50%;
+}
+
+.image {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%)
+}
+
+.container:hover .image {
+  opacity: 0.3;
+}
+
+.container:hover .middle {
+  opacity: 1;
+}
+
+.text {
+  background-color: #4CAF50;
+  color: white;
+  font-size: 16px;
+  padding: 16px 32px;
+}
+</style>
+-----------------------------------
+td><div class="container">
+  <img src="images\<?php echo $baris['Album_Image']; ?>" style="border-radius: 8px;height:150px;width:150px;"alt="Avatar" class="image" style="width:100%">
+  <div class="middle">
+    <div class="text"><a href="music_viewDetails">View This Music</a></div>
+  </div>
+</div></td>

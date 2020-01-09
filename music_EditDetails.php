@@ -1,10 +1,6 @@
 <?php 
 
-function slug($z){
-	$z = nl2br($z);
-	$z = str_replace("'", "'", $z);
-	return $z;
-}
+
 
 session_start();
 
@@ -62,7 +58,6 @@ if(isset($_SESSION["UserID"])){
 
 $songname = $_POST['songname'];
 
-
 $host = "localhost";
 $user = "root";
 $password = "";
@@ -72,7 +67,7 @@ $link = mysqli_connect($host,$user,$password,$database);
 
 if(!$link)
 {
-	die ("Could not connenct to database".mysqli_connect_error($link));
+	die ("Could not connect to database".mysqli_connect_error($link));
 }
 else
 {

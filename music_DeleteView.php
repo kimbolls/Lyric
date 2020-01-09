@@ -119,7 +119,6 @@ else
 ?>
 		</table>
 		<br>
-		<input type="submit" value="Delete chosen Song">
 		</form>
 <?php
 	}

@@ -122,7 +122,6 @@ else
  ?>
 	</table>
 	<br>
-	<input type="Submit" value="Update chosen album">
 	</form>
 <?php  
 

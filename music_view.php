@@ -82,22 +82,23 @@ else
 	}
 	else
 	{
-			?>
-			<table border="1">
+		?>
+		<center>
+		<table border = "2" >
 		<tr>
-			<th> View Details </th>
-			<th> Song: </th>
-			<th> Album: </th>
-			<th> Artist:  </th>
-			<th> Feat Artist: </th>
-			<th> Genre: </th>
-			<th> Lyric: </th>
+			<th>Choose</th>
+			<th>Song Name</th>
+			<th>Album Name</th>
+			<th>Artist Name</th>
+			<th>Featuring Artist Name</th>
+			<th>Song Genre</th>
+			<th>Song Lyric</th>
 		</tr>
 		
 		<?php	
 			while($baris = mysqli_fetch_array($resultGet,MYSQLI_BOTH)){
 				?>
-				
+			<center>	
 				<tr>
 				<td><img src="images\<?php echo $baris['Album_Image']; ?>" style="width:200px;"></td>
 					<td><?php echo $baris['Song_Name']; ?></td>

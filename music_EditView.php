@@ -106,14 +106,9 @@ else
 		
 		<tr>
 			<th>
-			<div class="container">
-  <img src="images\<?php echo $baris['Album_Image']; ?>"  class="image" >
-  <div class="middle">
-    
-   <input type="radio" name="songname" value="<?php echo $baris['Song_Name']; ?>" />
-
-  </div>
-</div>
+			<button type="submit" name="songname" value="<?php echo $baris['Song_Name']; ?>";></td>
+			<img class="image" src="images\<?php echo $baris['Album_Image']; ?>" />
+			</button>
 	</th>
 			<td><?php echo $baris['Song_Name']; ?></td>
 			<td><?php echo $baris['Album_Name']; ?></td>

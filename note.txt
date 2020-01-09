@@ -134,8 +134,3 @@ td><div class="container">
     <div class="text"><a href="music_viewDetails">View This Music</a></div>
   </div>
 </div></td>
-
-------------------------------------
-
-external css
-<link rel="stylesheet" type="text/css" href="mystyle.css">

@@ -17,7 +17,6 @@ if(isset($_SESSION["UserID"])){
 
 <head><script src="music_script.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="mystyle.css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <title> Hi-Fi - Music Record </title>
 <body>
@@ -86,7 +85,7 @@ else
 	else
 	{
  ?>
-		<form action="music_Edit.php" name="UpdateMusic" method="POST" enctype="multipart/form-data">
+		<form action="music_Edit.php" name="UpdateMusic" method="POST">
 		
 		
 		<?php
@@ -98,7 +97,7 @@ else
 		<table>
 		<tr>
 			<th>Song Name: </th>
-			<td><center><?php echo $baris['Song_Name']; ?></center></th>
+			<td><?php echo $baris['Song_Name']; ?></th>
 		</tr>
 		
 		<tr>
@@ -113,16 +112,10 @@ else
 			<th>Feat Artist Name:</th>
 			<th><input type="text" name="featartistname" value=" <?php echo $baris['Featuring_Artist_Name']; ?>" required></th>
 		</tr>
-		<tr>
 			<th>Song Genre: </th>
 			<th><input type="text" name="songgenre" value=" <?php echo $baris['Song_Genre']; ?>" required></th>
 		</tr>
-		
-		<tr>
-			<th>Album Image :</th>
-			<th><input type="file" name="albumimage" accept="image/*" value="<?php echo $baris['Album_Image']; ?>"required	></th>
 		</tr>
-		<tr>
 			<th>Song Lyric: </th>
 			<th><textarea type="text" name="songlyric" required><?php echo $baris['Song_Lyric']; ?></textarea></th>
 		</tr>

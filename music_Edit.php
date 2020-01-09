@@ -59,8 +59,6 @@ $artistname = $_POST['artistname'];
 $featartistname = $_POST['featartistname'];
 $songgenre = $_POST['songgenre'];
 
-$songlyric = $_POST['songlyric'];
-
 $host = "localhost";
 $user = "root";
 $password = "";
@@ -74,27 +72,7 @@ if(!$link)
 }
 else
 {
-    $albumimage = basename($_FILES['albumimage']["name"]);
-$target_dir = "images/";
-$target_file = $target_dir . basename($_FILES['albumimage']["name"]);
-$uploadOk = 1;
-$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));  
-
-if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
-    echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-    $uploadOk = 0;
-}
-if ($uploadOk == 0) {
-    echo "Sorry, your file was not uploaded.";
-// if everything is ok, try to upload file
-} else {
-    if (move_uploaded_file($_FILES["albumimage"]["tmp_name"], $target_file)) {
-      
-    } else {
-		echo "Sorry, there was an error uploading your file.";
-		$uploadOk = 0;
-    }
-	$queryUpdate = "UPDATE MUSIC SET Song_Name = '".$songname."', Artist_Name = '".$artistname."', Featuring_Artist_Name = '".$featartistname."', Song_Genre =  '".$songgenre."', Album_Image = '".$albumimage."', Song_Lyric = '".$songlyric."' WHERE Album_Name = '".$albumname."' "; 
+	$queryUpdate = "UPDATE MUSIC SET Song_Name = '".$songname."', Artist_Name = '".$artistname."', Featuring_Artist_Name = '".$featartistname."', Song_Genre =  '".$songgenre."' WHERE Album_Name = '".$albumname."' "; 
 	
 	$resultUpdate = mysqli_query($link, $queryUpdate);
 	
@@ -116,7 +94,6 @@ if ($uploadOk == 0) {
 </body>
 </html>
 <?php 
-}
 }
 else{
     echo "No session exists or session has expired. Please log in again. <br>";

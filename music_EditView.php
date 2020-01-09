@@ -28,7 +28,7 @@ margin-left:auto;
 position:relative;
   opacity: 1;
   display: block;
-  width: 30%;
+  width: 200px;
   transition: .5s ease;
   backface-visibility: hidden;
 }
@@ -125,8 +125,8 @@ else
 	else
 	{
 		?>
-		
-		<table border = "2">
+		<center>
+		<table border = "2" >
 		<tr>
 			<th>Choose</th>
 			<th>Song Name</th>
@@ -145,11 +145,13 @@ else
 		?>
 		
 		<tr>
-			<th><input type="radio" name="songname" value="<?php echo $baris['Song_Name'];?>" required>
+			<th>
 			<div class="container">
   <img src="images\<?php echo $baris['Album_Image']; ?>"  class="image" >
   <div class="middle">
-    <div class="text"><?php echo $baris['Song_Name']; ?></div>
+    
+   <input type="radio" name="songname" value="<?php echo $baris['Song_Name']; ?>" />
+
   </div>
 </div>
 	</td>

@@ -99,13 +99,13 @@ else
 				?>
 				
 				<tr>
-				<td><img src="images\<?php echo $baris['Album_Image']; ?>" style="border-radius: 8px;height:150px;width:150px;"></td>
+				<td><img src="images\<?php echo $baris['Album_Image']; ?>" style="width:200px;"></td>
 					<td><?php echo $baris['Song_Name']; ?></td>
 					<td><?php echo $baris['Album_Name']; ?></td>
 					<td><?php echo $baris['Artist_Name']; ?></td>
 					<td><?php echo $baris['Featuring_Artist_Name']; ?></td>
 					<td><?php echo $baris['Song_Genre']; ?></td>
-					<td><?php echo slug($baris['Song_Lyric']); ?></td>
+					<td><?php echo slug($baris['Song_Lyric']); ?></td>	
 				</tr>
 	
 <?php

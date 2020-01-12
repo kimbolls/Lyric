@@ -1,16 +1,25 @@
 <?php 
 
+function slug($z){
+	$z = nl2br($z);
+	$z = str_replace("'", "'", $z);
+	return $z;
+}
+
 session_start();
 
 if(isset($_SESSION["UserID"])){
+	
     ?>
 
-<html>
-<head>
 <script src="music_script.js"></script>
+
+<html>
+
+<head><script src="music_script.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<title> Hi-Fi - Music Registration </title>
+<title> Hi-Fi - Music Record </title>
 <body>
 <?php 
     if($_SESSION["UserType"]=="Admin"){
@@ -44,14 +53,84 @@ if(isset($_SESSION["UserID"])){
 <div class="w3-teal">
   <button id="openNav" class="w3-button w3-teal w3-xlarge" onclick="w3_open()">&#9776;</button>
   <div class="w3-container">
+  <h1>Music Record</h1>
+  </div>
+  </div>
+  <br><br>
 <center>
-<h1> WELCOME, Hi <?php echo $_SESSION["UserID"];?> </h1>
+<?php
 
-<form name="Search" action="music_searchview.php" method="POST">
-Search:	<input type="text" name="search" required>
-<input type="submit" value="Go">
-</form>
+$host = "localhost";
+$user = "root";
+$pass = "";
+$database = "hi-fi";
+
+$search= $_POST['search'];
+
+$link = mysqli_connect($host,$user,$pass,$database);
+
+if(!$link)
+{
+	die ("Unable to connect: " . mysqli_connect_error($link));
+}
+else
+{
+	$Query = "Select * from music where Song_Name LIKE '%$search%' OR Album_Name LIKE '%$search%' OR Artist_Name LIKE '%$search%' OR Song_Genre LIKE '%$search%'";
+	
+	$resultGet = mysqli_query($link,$Query);
+	
+	$row = mysqli_num_rows($resultGet);
+	
+	if($row > 0){
+	if(!$resultGet)
+	{
+		die("Unable to get query: ". mysqli_error($link));
+	}
+	else
+	{
+		?>
+		<center>
+		<table border = "2" >
+		<tr>
+			<th>Choose</th>
+			<th>Song Name</th>
+			<th>Album Name</th>
+			<th>Artist Name</th>
+			<th>Featuring Artist Name</th>
+			<th>Song Genre</th>
+			<th>Song Lyric</th>
+		</tr>
+		
+		<?php	
+			while($baris = mysqli_fetch_array($resultGet,MYSQLI_BOTH)){
+				?>
+			<center>	
+				<tr>
+				<td><img src="images\<?php echo $baris['Album_Image']; ?>" style="width:200px;"></td>
+					<td><?php echo $baris['Song_Name']; ?></td>
+					<td><?php echo $baris['Album_Name']; ?></td>
+					<td><?php echo $baris['Artist_Name']; ?></td>
+					<td><?php echo $baris['Featuring_Artist_Name']; ?></td>
+					<td><?php echo $baris['Song_Genre']; ?></td>
+					<td><?php echo slug($baris['Song_Lyric']); ?></td>	
+				</tr>
+	
+<?php
+			}
+}
+	}
+else
+{
+	echo "No record found";
+}
+}
+
+?>
+</table>
+<br>
+
 </center>
+
 </body>
 </html>
 <?php 
@@ -62,6 +141,3 @@ else{
 }
 
 ?>
-    </div>
-</div>
-

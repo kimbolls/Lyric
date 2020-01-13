@@ -85,6 +85,9 @@ else
 	$queryGet = "select * from music";
 	$resultGet = mysqli_query($link,$queryGet);
 	
+	$row = mysqli_num_rows($resultGet);
+	
+	if($row > 0){
 	if(!$resultGet)
 	{
 		die ("Invalid Quety - get Music list: ".mysqli_error($link));
@@ -128,9 +131,11 @@ else
 	</form>
 	<h8> You can click on any Album Image to <b>edit</b> information about the music </h8>
 <?php  
-
+	}
 }
-
+else
+{
+	echo "No record found";
 }
 ?>
 
@@ -139,7 +144,9 @@ else
 </html>
 <?php 
 }
-else{
+}
+else
+{
     echo "No session exists or session has expired. Please log in again. <br>";
     echo "<a href=loginmenu.html> Login </a>";
 }

@@ -85,6 +85,9 @@ else
 	
 	$resultGet = mysqli_query($link,$Query);
 	
+	$row = mysqli_num_rows($resultGet);
+	
+	if($row > 0){
 	if(!$resultGet)
 	{
 		die("Unable to get query: ". mysqli_error($link));
@@ -115,17 +118,22 @@ else
 					<td><?php echo $baris['Artist_Name']; ?></td>
 						
 				</tr>
+				</table>
+<br>
+
+<h8> You can click on any Album Image to view more detailed information about the music </h8>
 	
 <?php
 }
 }
+	}
+	else
+{
+	echo "No record found";
+}
 }
 
 ?>
-</table>
-<br>
-
-<h8> You can click on any Album Image to view more detailed information about the music </h8>
 </center>
 
 </body>

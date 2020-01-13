@@ -68,6 +68,7 @@ $database = "hi-fi";
 
 $link = mysqli_connect($host,$user,$password,$database);
 
+
 if(!$link)
 {
 	die ("Could not connect to database: ".mysqli_connect_error($link));
@@ -77,6 +78,9 @@ else
 	$queryGet = "select * from music";
 	$resultGet = mysqli_query($link,$queryGet);
 	
+	$row = mysqli_num_rows($resultGet);
+	
+	if($row > 0){
 	if(!$resultGet)
 	{
 		die ("Invalid Query: ".mysqli_error($link));
@@ -117,13 +121,18 @@ else
 			
 <?php
 		}
+		}
 ?>
 		</table>
 		<br>
 		</form>
 <?php
 	}
+else
+{
+	echo "No record found";
 }
+	}
 ?>
 </center>
 </body>

@@ -81,7 +81,12 @@ if(!$link)
 }
 else
 {
-	$Query = "Select * from music";
+	if($_SESSION["UserType"] == "Normal"){
+	$Query = "Select * from music where Song_Status='Approved'";
+	}
+	else{
+		$Query = "Select * from music";
+	}
 	
 	$resultGet = mysqli_query($link,$Query);
 	

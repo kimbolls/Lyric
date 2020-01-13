@@ -175,8 +175,8 @@ else
 				<th>Song Status: </th>
 				<td><center>
 				<select name="songstatus">
-					<option value="Approved">Approve</option>
-					<option value="Pending">Incomplete</option>
+					<option value="Approved" <?php if($baris['Song_Status'] == "Approved") echo "selected"; ?>>Approve</option>
+					<option value="Pending" <?php if($baris['Song_Status'] == "Pending") echo "selected"; ?>>Pending</option>
 				</select>
 				</center>
 				</td>

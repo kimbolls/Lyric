@@ -77,9 +77,9 @@ if ($uploadOk == 0) {
 	$query = "INSERT into `music` VALUES(NULL,'$songname','$albumname','$artistname','$featartistname','$songgenre','$albumimage','$songlyric','$songplayer','$songstatus','$userID')";
 	$query_result = mysqli_query($link,$query);
 	
-	if(!$query_result && $upload = 0)
+	if(!$query_result || $uploadOk == 0)
 	{
-		die("Your query or image is incorrect " .mysqli_error($link));
+		die("Your query or file uploaded is incorrect " .mysqli_error($link));
 	}
 	else{
 	

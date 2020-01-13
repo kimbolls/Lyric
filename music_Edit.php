@@ -1,6 +1,10 @@
 <?php 
 
 session_start();
+function slug($z){
+	$z = str_replace("'", "''", $z);
+    return $z;
+}
 
 if(isset($_SESSION["UserID"])){
     ?>
@@ -65,7 +69,7 @@ $featartistname = $_POST['featartistname'];
 $songgenre = $_POST['songgenre'];
 $songlyric = $_POST['songlyric'];
 $songstatus = $_POST['songstatus'];
-
+$songlyric = slug($songlyric);
 
 $host = "localhost";
 $user = "root";

@@ -11,8 +11,10 @@ if(isset($_SESSION["UserID"])){
 
 <head><script src="music_script.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css" type="text/css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <title> Hi-Fi - Music Record </title>
+</head>
 <body>
 <?php 
     if($_SESSION["UserType"]=="Admin"){
@@ -52,7 +54,7 @@ if(isset($_SESSION["UserID"])){
  <center>
 <?php 
 
-$songname = ;
+$songID = $_POST['songID'];
 
 $host = "localhost";
 $user = "root";
@@ -67,7 +69,7 @@ if(!$link)
 }
 else
 {
-	$queryGet = "select * from music where Song_Name = '$songname' ";
+	$queryGet = "select * from music where Song_ID = '$songID' ";
 	$resultGet = mysqli_query($link,$queryGet);
 	
 	if(!$resultGet)
@@ -81,14 +83,51 @@ else
         {
             ?>
 
-<div class="card" style="width: 18rem;">
-  <img class="card-img-top" src=".../100px180/" alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
+
+  <br><img class="card-img-top" src="images\<?php echo $baris['Album_Image']; ?>" alt="Album Image Here"><br><br>
+
+<table border="1">
+<tr>
+<th colspan="2"><h3 class="card-title" ><b><?php echo $baris['Song_Name']; ?></b></h5> </th>
+
+</tr>
+<tr>
+  <td class="card-text">Artist : </td>
+  <th><p class="card-text"><?php echo $baris['Artist_Name']; ?></p></th>
+</tr>
+<tr>
+  <td class="card-text">Album Name : </td>
+  <th><p class="card-text"><?php echo $baris['Album_Name']; ?></p></th>
+</tr>
+<tr>
+  <td class="card-text">Featuring Artist : </td>
+  <th><p class="card-text"><?php echo $baris['Featuring_Artist_Name']; ?></p></th>
+</tr>
+<tr>
+  <td class="card-text">Song Genre : </td>
+  <th><p class="card-text"><?php echo $baris['Song_Genre']; ?></p></th>
+</tr>
+<tr>
+  <td class="card-text">Song Player : </td>
+  <th><p class="card-text"><audio controls>
+  <source src="musics\<?php echo $baris['Song_Player']; ?>" type="audio/mp3"></p></th>
+</tr>
+<tr>
+  <td class="card-text">Song Status : </td>
+  <th><p class="card-text"><?php echo $baris['Song_Status']; ?></p></th>
+</tr>
+<tr>
+  <td class="card-text">Uploaded by : </td>
+  <th><p class="card-text"><?php echo $baris['UserID']; ?></p></th>
+</tr>
+<tr>
+  <td class="card-text">Song Lyrics : </td>
+  <th><p class="card-text"><?php echo $baris['Song_Lyric']; ?></p></th>
+</tr>
+</table>
+<br>
+<a href="music_view.php"> Click here to go back </a>
+  
 
 <?php
         }

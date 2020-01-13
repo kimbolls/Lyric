@@ -3,7 +3,11 @@
 
 
 session_start();
-
+function slug($z){
+	$z = nl2br($z);
+	$z = str_replace("'", "'", $z);
+	return $z;
+}
 if(isset($_SESSION["UserID"])){
     ?>
 
@@ -128,11 +132,12 @@ else
 			<th>Song File :</th>
 			<th><input type="file" name="songplayer" accept=".mp3" value="<?php echo $baris['Song_Player']; ?>"required	></th>
 		</tr>
-		<tr>
-			<th>Song Lyric: </th>
-			<th><textarea type="text" name="songlyric" required><?php echo $baris['Song_Lyric']; ?></textarea></th>
-		</tr>
-			</table>	
+		</table>
+	
+			Song Lyric: 
+			<textarea type="text" name="songlyric" required><?php echo $baris['Song_Lyric']; ?></textarea>
+	
+				
 			<input type="hidden" name="songID" value="<?php echo $baris['Song_ID']; ?>">
 			<input type="hidden" name="songstatus" value="<?php echo $baris['Song_Status']; ?>">
 			<button onclick="window.location.href='music_EditView.php';">Go back </button>
@@ -170,21 +175,21 @@ else
 			<th>Song Genre: </th>
 			<td><center><?php echo $baris['Song_Genre']; ?></center></th>
 		</tr>
-		<tr>
-			<th>Song Lyric: </th>
-			<td><center><?php echo $baris['Song_Lyric']; ?></center></th>
-		</tr>
-				<tr>
-				<th>Song Status: </th>
-				<td><center>
+		</table>
+			<br><br><b><h8>Song Lyric: </h8></b><br><br>
+			<center><?php echo slug($baris['Song_Lyric']); ?></center>
+		
+			<br>
+			<center>
+				Song Status: 	
+				
 				<select name="songstatus">
 					<option value="Approved" <?php if($baris['Song_Status'] == "Approved") echo "selected"; ?>>Approve</option>
 					<option value="Pending" <?php if($baris['Song_Status'] == "Pending") echo "selected"; ?>>Pending</option>
-				</select>
+				</select><br><br>
 				</center>
-				</td>
-			</tr>
-			</table>	
+				
+				
 			
 			
 			<input type="hidden" name="songID" value="<?php echo $baris['Song_ID']; ?>">

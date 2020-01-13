@@ -18,7 +18,12 @@ if(isset($_SESSION["UserID"])){
 
 <head><script src="music_script.js"></script>
 <link rel="stylesheet" type="text/css" href="style.css">
-
+<style>
+	.hover:hover {
+  opacity: 0.8;
+  filter: alpha(opacity=50);
+}
+</style>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <title> Hi-Fi - Music Record </title>
@@ -101,7 +106,7 @@ else
 				?>
 			<center>	<form action="music_viewDetails.php" method="POST">
 				<tr>
-				<td><button type="submit" name="songID" value="<?php echo $baris['Song_ID']; ?>";>
+				<td><button type="submit" class="hover" name="songID" value="<?php echo $baris['Song_ID']; ?>";>
 			<img src="images\<?php echo $baris['Album_Image']; ?>" width="150px" />
 			</button></form></td>
 					<td><?php echo $baris['Song_Name']; ?></td>
@@ -119,7 +124,7 @@ else
 </table>
 <br>
 
-<h8> You can click on any Album Image to view more detailed information about the music </h2>
+<h8> You can click on any Album Image to view more detailed information about the music </h8>
 </center>
 
 </body>

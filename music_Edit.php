@@ -62,6 +62,7 @@ $songgenre = $_POST['songgenre'];
 $songlyric = $_POST['songlyric'];
 $songstatus = $_POST['songstatus'];
 
+
 $host = "localhost";
 $user = "root";
 $password = "";
@@ -75,7 +76,7 @@ if(!$link)
 }
 else
 {
-    $albumimage = basename($_FILES['albumimage']["name"]);
+$albumimage = basename($_FILES['albumimage']["name"]);
 $target_dir = "images/";
 $target_file = $target_dir . basename($_FILES['albumimage']["name"]);
 $uploadOk = 1;
@@ -95,7 +96,19 @@ if ($uploadOk == 0) {
 		echo "Sorry, there was an error uploading your file.";
 		$uploadOk = 0;
     }
-	$queryUpdate = "UPDATE MUSIC SET Song_Name = '".$songname."', Album_Name = '".$albumname."', Artist_Name = '".$artistname."', Featuring_Artist_Name = '".$featartistname."', Song_Genre =  '".$songgenre."', Album_Image = '".$albumimage."', Song_Lyric = '".$songlyric."', Song_Status = '".$songstatus."' WHERE Song_ID = '".$songID."'  "; 
+    $songplayer= basename($_FILES['songplayer']["name"]);
+    $target_dir = "musics/";
+    $target_file = $target_dir . basename($_FILES['songplayer']["name"]);
+    $uploadOk = 1;
+    $songFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));  
+     
+        if (move_uploaded_file($_FILES["songplayer"]["tmp_name"], $target_file)) {
+        } else {
+        echo "Sorry, there was an error uploading your music.";
+        $uploadOk = 0;
+        }
+	$queryUpdate = "UPDATE MUSIC SET Song_Name = '".$songname."', Album_Name = '".$albumname."', Artist_Name = '".$artistname."', Featuring_Artist_Name = '".$featartistname."', Song_Genre =  '".$songgenre."', Album_Image = '".$albumimage."', Song_Lyric = '".$songlyric."', 
+    Song_Status = '".$songstatus."', Song_Player = '".$songplayer."' WHERE Song_ID = '".$songID."'  "; 
 	
 	$resultUpdate = mysqli_query($link, $queryUpdate);
 	

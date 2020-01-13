@@ -19,6 +19,12 @@ if(isset($_SESSION["UserID"])){
 </head>
 
 <head><script src="music_script.js"></script>
+<style>
+	.hover:hover {
+  opacity: 0.8;
+  filter: alpha(opacity=50);
+}
+</style>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <title> Hi-Fi - Music Record </title>
@@ -92,9 +98,7 @@ else
 			<th>Song Name</th>
 			<th>Album Name</th>
 			<th>Artist Name</th>
-			<th>Featuring Artist Name</th>
-			<th>Song Genre</th>
-			<th>Song Lyric</th>
+			
 		</tr>
 <form action="music_EditDetails.php" name="UpdateForm" method="POST">
 
@@ -106,16 +110,14 @@ else
 		
 		<tr>
 			<th>
-			<button type="submit" name="songID" value="<?php echo $baris['Song_ID']; ?>";></td>
+			<button type="submit" name="songID" class="hover" value="<?php echo $baris['Song_ID']; ?>";></td>
 			<img class="image" src="images\<?php echo $baris['Album_Image']; ?>" />
 			</button>
 	</th>
 			<td><?php echo $baris['Song_Name']; ?></td>
 			<td><?php echo $baris['Album_Name']; ?></td>
 			<td><?php echo $baris['Artist_Name']; ?></td>
-			<td><?php echo $baris['Featuring_Artist_Name']; ?></td>
-			<td><?php echo $baris['Song_Genre']; ?></td>
-			<td><?php echo slug($baris['Song_Lyric']); ?></td>
+			
 		</tr>
 <?php 
 	}
@@ -123,6 +125,7 @@ else
 	</table>
 	<br>
 	</form>
+	<h8> You can click on any Album Image to <b>edit</b> information about the music </h8>
 <?php  
 
 }

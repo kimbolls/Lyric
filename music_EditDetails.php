@@ -96,7 +96,7 @@ else
 			<table>
 		<tr>
 			<th>Song Name: </th>
-			<td><center><?php echo $baris['Song_Name']; ?></center></th>
+			<th><input type="text" name="songname" value="<?php echo $baris['Song_Name']; ?>"></th>
 		</tr>
 		
 		<tr>
@@ -121,11 +121,17 @@ else
 			<th><input type="file" name="albumimage" accept="image/*" value="<?php echo $baris['Album_Image']; ?>"required	></th>
 		</tr>
 		<tr>
+			<th>Song File :</th>
+			<th><input type="file" name="songplayer" accept=".mp3" value="<?php echo $baris['Song_Player']; ?>"required	></th>
+		</tr>
+		<tr>
 			<th>Song Lyric: </th>
 			<th><textarea type="text" name="songlyric" required><?php echo $baris['Song_Lyric']; ?></textarea></th>
 		</tr>
 			</table>	
-			<input type="hidden" name="songname" value="<?php echo $baris['Song_Name']; ?>">
+			<input type="hidden" name="songID" value="<?php echo $baris['Song_ID']; ?>">
+			<input type="hidden" name="songstatus" value="<?php echo $baris['Song_Status']; ?>">
+			<button onclick="window.location.href='music_EditView.php';">Go back </button>
 			<input type="Submit" value="Update new details">
 			</form>
 			</center>
@@ -185,6 +191,7 @@ else
 			<input type="hidden" name="songgenre" value="<?php echo $baris['Song_Genre']; ?>">
 			<input type="hidden" name="songlyric" value="<?php echo $baris['Song_Lyric']; ?>">
 			<input type="hidden" name="albumimage" value="<?php echo $baris['Album_Image']; ?>">
+			<button onclick="window.location.href='music_EditView.php';">Go back </button>
 			<input type="Submit" value="Update new details">
 			</form>
 			</center>

@@ -63,6 +63,7 @@ $user = "root";
 $password = "";
 $database = "hi-fi";
 
+
 $link = mysqli_connect($host,$user,$password,$database);
 
 if(!$link)
@@ -88,7 +89,7 @@ else
 		
 		while($baris = mysqli_fetch_assoc($resultGet))
 		{
-			if($_SESSION["UserType"] == "User"){
+			if($_SESSION["UserType"] == "Normal"){
 				
 			?>
 			<form action="music_Edit.php" name="UpdateMusic" method="POST" enctype="multipart/form-data">
@@ -124,7 +125,7 @@ else
 			<th><textarea type="text" name="songlyric" required><?php echo $baris['Song_Lyric']; ?></textarea></th>
 		</tr>
 			</table>	
-			<input type="hidden" name="songname" value="<?php echo $songname ?>">
+			<input type="hidden" name="songname" value="<?php echo $baris['Song_Name']; ?>">
 			<input type="Submit" value="Update new details">
 			</form>
 			</center>

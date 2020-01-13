@@ -85,8 +85,15 @@ if(!$link)
 }
 else
 {
+	if($_SESSION['UserType'] == "Admin")
+	{
+	$queryGet = "select * from music";
+	}
+	else
+	{	
 	$UserID = $_SESSION['UserID'];
 	$queryGet = "select * from music where UserID = '$UserID'";
+	}
 	$resultGet = mysqli_query($link,$queryGet);
 	
 	$row = mysqli_num_rows($resultGet);

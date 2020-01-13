@@ -79,7 +79,7 @@ if(!$link)
 }
 else
 {
-	$Query = "Select * from music where Song_Name LIKE '%$search%' OR Album_Name LIKE '%$search%' OR Artist_Name LIKE '%$search%' OR Song_Genre LIKE '%$search%'";
+	$Query = "Select * from music where Song_Status='Approved' And Song_Name LIKE '%$search%' OR Song_Status='Approved' And Album_Name LIKE '%$search%' OR Song_Status='Approved' And  Artist_Name LIKE '%$search%' OR Song_Status='Approved' And  Song_Genre LIKE '%$search%'";
 	
 	$resultGet = mysqli_query($link,$Query);
 	

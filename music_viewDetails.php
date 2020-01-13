@@ -94,7 +94,7 @@ else
 
   <br><img class="card-img-top" src="images\<?php echo $baris['Album_Image']; ?>" alt="Album Image Here">
   <p class="card-text"><audio controls>
-  <source src="musics\<?php echo $baris['Song_Player']; ?>" type="audio/mp3"></p>
+  <source src="musics/<?php echo $baris['Song_Player']; ?>" type="audio/mp3"></p>
 
 <table border="1">
 <tr>

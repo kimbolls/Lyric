@@ -7,6 +7,7 @@ if(isset($_SESSION["UserID"])){
     <head>
 <script src="music_script.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css" type="text/css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <title> My Profile </title>
 <body>
@@ -41,6 +42,36 @@ if(isset($_SESSION["UserID"])){
 
     <?php 
     }
+   
+
+$userID = $_SESSION["UserID"];
+$usertype = $_SESSION['UserType'];
+$host = "localhost";
+$user = "root";
+$password = "";
+$database = "hi-fi";
+
+$link = mysqli_connect($host,$user,$password,$database);
+
+if(!$link)
+{
+	die ("Could not connenct to database".mysqli_connect_error($link));
+}
+else
+{
+	$queryGet = "select * from user where UserID = '$userID' ";
+	$resultGet = mysqli_query($link,$queryGet);
+	
+	if(!$resultGet)
+	{
+		die ("Invalid Query - get Music list: ".mysqli_error($link));
+	}
+	else
+	{
+
+        while($baris = mysqli_fetch_assoc($resultGet))
+        {
+            
     ?>
 <div id="main">
 <div class="w3-teal">
@@ -51,8 +82,20 @@ if(isset($_SESSION["UserID"])){
 </center>
   </div>
 </div>
+<br><br>
+<center>
+<table>
 
+        <img src="images\<?php echo $baris['User_Image']; ?>">
+<h1><?php echo $userID; ?></h1>
+<p> User type :   <?php echo $usertype; ?> </p>
+
+        </center>
 <?php 
+}
+}
+
+    }
 }
 else{
     echo "No session exists or session has expired. Please log in again. <br>";

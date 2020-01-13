@@ -33,7 +33,8 @@ if(isset($_SESSION["UserID"])){
         ?>
 <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="mySidebar">
 <button class="w3-bar-item w3-button w3-large" onclick="w3_close()">Close &times;</button>
-<a href="music_EditView.php" class="w3-bar-item w3-button"> Edit Music </a> 
+  <a href="music_view.php" class="w3-bar-item w3-button"> View Music </a>
+  <a href="music_EditView.php" class="w3-bar-item w3-button"> Edit Music </a> 
 <a href="logout.php" class="w3-bar-item w3-button">Logout </a><br>
     </div>
 <?php 
@@ -84,6 +85,9 @@ else
 	
 	$resultGet = mysqli_query($link,$Query);
 	
+	$row = mysqli_num_rows($resultGet);
+	
+	if($row > 0){
 	if(!$resultGet)
 	{
 		die("Unable to get query: ". mysqli_error($link));
@@ -114,17 +118,22 @@ else
 					<td><?php echo $baris['Artist_Name']; ?></td>
 						
 				</tr>
+				</table>
+<br>
+
+<h8> You can click on any Album Image to view more detailed information about the music </h8>
 	
 <?php
 }
 }
+	}
+	else
+{
+	echo "No record found";
+}
 }
 
 ?>
-</table>
-<br>
-
-<h8> You can click on any Album Image to view more detailed information about the music </h8>
 </center>
 
 </body>

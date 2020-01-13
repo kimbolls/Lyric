@@ -34,7 +34,8 @@ if(isset($_SESSION["UserID"])){
         ?>
 <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="mySidebar">
 <button class="w3-bar-item w3-button w3-large" onclick="w3_close()">Close &times;</button>
-<a href="music_insert.php" class="w3-bar-item w3-button"> Register New Music </a>
+  <a href="music_view.php" class="w3-bar-item w3-button"> View Music </a>
+  <a href="music_EditView.php" class="w3-bar-item w3-button"> Edit Music </a> 
 <a href="logout.php" class="w3-bar-item w3-button">Logout </a><br>
     </div>
 <?php 
@@ -84,6 +85,9 @@ else
 	$queryGet = "select * from music";
 	$resultGet = mysqli_query($link,$queryGet);
 	
+	$row = mysqli_num_rows($resultGet);
+	
+	if($row > 0){
 	if(!$resultGet)
 	{
 		die ("Invalid Quety - get Music list: ".mysqli_error($link));
@@ -127,9 +131,11 @@ else
 	</form>
 	<h8> You can click on any Album Image to <b>edit</b> information about the music </h8>
 <?php  
-
+	}
 }
-
+else
+{
+	echo "No record found";
 }
 ?>
 
@@ -138,7 +144,9 @@ else
 </html>
 <?php 
 }
-else{
+}
+else
+{
     echo "No session exists or session has expired. Please log in again. <br>";
     echo "<a href=loginmenu.html> Login </a>";
 }

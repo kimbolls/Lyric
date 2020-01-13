@@ -90,13 +90,11 @@ else
 		?>
 		<table border="2">
 		<tr>
-			<th>Choose</th>
+			<th>Album Image</th>
 			<th>Song Name</th>
 			<th>Album Name</th>
 			<th>Artist Name</th>
-			<th>Feat Artist Name</th>
-			<th>Song Genre</th>
-			<th>Song Lyric</th>
+			
 		</tr>
 		<form action="music_Delete.php" name="DeleteForm" method="POST" onSubmit="return confirm('Are you sure?')">
 		
@@ -114,9 +112,6 @@ else
 				<td><?php echo $baris['Song_Name'];?></td>
 				<td><?php echo $baris['Album_Name'];?></td>
 				<td><?php echo $baris['Artist_Name'];?></td>
-				<td><?php echo $baris['Featuring_Artist_Name'];?></td>
-				<td><?php echo $baris['Song_Genre'];?></td>
-				<td><?php echo slug($baris['Song_Lyric']);?></td>
 			</tr>
 			
 <?php
@@ -126,6 +121,7 @@ else
 		</table>
 		<br>
 		</form>
+		<h8> Click on any Album Image to delete song </h8>
 <?php
 	}
 else

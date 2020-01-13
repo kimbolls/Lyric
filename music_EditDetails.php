@@ -81,7 +81,7 @@ else
 	else
 	{
  ?>
-		<form action="music_Edit.php" name="UpdateMusic" method="POST" enctype="multipart/form-data">
+		
 		
 		
 		<?php
@@ -89,7 +89,9 @@ else
 		while($baris = mysqli_fetch_assoc($resultGet))
 		{
 			if($_SESSION["UserType"] == "User"){
+				
 			?>
+			<form action="music_Edit.php" name="UpdateMusic" method="POST" enctype="multipart/form-data">
 			<table>
 		<tr>
 			<th>Song Name: </th>
@@ -130,10 +132,11 @@ else
 			}
 			else {
 			?>
+			<form action="music_EditAdmin.php" name="UpdateMusicAdmin" method="POST">
 			<table border="border">
 		<tr>
 			<th>Album Image: </th>
-			<td><img src="images\<?php echo $baris['Album_Image']; ?>" style="width:200px;"></td>
+			<td><?php echo $baris['Album_Image']; ?>"</td>
 		</tr>
 		<tr>
 			<th>Song Name: </th>
@@ -171,6 +174,7 @@ else
 				</td>
 			</tr>
 			</table>	
+			
 			
 			<input type="hidden" name="songID" value="<?php echo $baris['Song_ID']; ?>">
 			<input type="hidden" name="songname" value="<?php echo $baris['Song_Name']; ?>">

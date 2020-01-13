@@ -22,6 +22,8 @@ $artistname = $_POST['artistname'];
 $featartistname = $_POST['featartistname'];
 $songgenre = $_POST['songgenre'];
 $songlyric = $_POST['songlyric'];
+$songstatus = "Pending";
+$userID = $_SESSION['UserID'];
 $songlyric = slug($songlyric);
 
 if(isset($featartistname))
@@ -54,11 +56,25 @@ if ($uploadOk == 0) {
     if (move_uploaded_file($_FILES["albumimage"]["tmp_name"], $target_file)) {
       
     } else {
-		echo "Sorry, there was an error uploading your file.";
+		echo "Sorry, there was an error uploading your image .";
 		$uploadOk = 0;
     }
+    
+    $songplayer= basename($_FILES['songplayer']["name"]);
+    $target_dir = "musics/";
+    $target_file = $target_dir . basename($_FILES['songplayer']["name"]);
+    $uploadOk = 1;
+    $songFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));  
+     
+        if (move_uploaded_file($_FILES["songplayer"]["tmp_name"], $target_file)) {
+        } else {
+        echo "Sorry, there was an error uploading your music.";
+        $uploadOk = 0;
+        }
+    
 }
-	$query = "INSERT into `music` VALUES('$songname','$albumname','$artistname','$featartistname','$songgenre','$albumimage','$songlyric')";
+
+	$query = "INSERT into `music` VALUES(NULL,'$songname','$albumname','$artistname','$featartistname','$songgenre','$albumimage','$songlyric','$songplayer','$songstatus','$userID')";
 	$query_result = mysqli_query($link,$query);
 	
 	if(!$query_result && $upload = 0)
@@ -95,7 +111,7 @@ if ($uploadOk == 0) {
 <h1> YOUR MUSIC  </h1>
 
   </div>
-</div><br><br>
+</div><br><br><center>
 <?php 
 echo "Your Music has been successfully uploaded!";
 	}

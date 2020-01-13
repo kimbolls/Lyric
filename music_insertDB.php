@@ -97,6 +97,7 @@ if ($uploadOk == 0) {
   <button class="w3-bar-item w3-button w3-large"
   onclick="w3_close()">Close &times;</button>
   <a href="homepage.php" class="w3-bar-item w3-button"> Home </a>
+  <a href="user_profile.php" class="w3-bar-item w3-button"> My Profile</a>
   <a href="music_insert.php" class="w3-bar-item w3-button"> Register New Music </a>
   <a href="music_view.php" class="w3-bar-item w3-button"> View Music </a>
   <a href="music_EditView.php" class="w3-bar-item w3-button"> Edit Music </a> 

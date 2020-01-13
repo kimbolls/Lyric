@@ -33,6 +33,8 @@ if(isset($_SESSION["UserID"])){
         ?>
 <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="mySidebar">
 <button class="w3-bar-item w3-button w3-large" onclick="w3_close()">Close &times;</button>
+<a href="homepage.php" class="w3-bar-item w3-button"> Home </a>
+<a href="user_profile.php" class="w3-bar-item w3-button"> My Profile</a>
   <a href="music_view.php" class="w3-bar-item w3-button"> View Music </a>
   <a href="music_EditView.php" class="w3-bar-item w3-button"> Edit Music </a> 
 <a href="logout.php" class="w3-bar-item w3-button">Logout </a><br>
@@ -136,7 +138,7 @@ else
 	}
 	else
 {
-	echo "No record found";
+	echo "Record is empty or no songs are approved yet.";
 }
 }
 

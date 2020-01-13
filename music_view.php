@@ -118,13 +118,15 @@ else
 					<td><?php echo $baris['Artist_Name']; ?></td>
 						
 				</tr>
+
+	
+<?php
+} ?>
 				</table>
 <br>
 
 <h8> You can click on any Album Image to view more detailed information about the music </h8>
-	
 <?php
-}
 }
 	}
 	else

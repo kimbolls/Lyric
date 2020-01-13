@@ -92,33 +92,59 @@ else
 	}
 	else
 	{
-		?>
-		<center>
-		<table border = "2" >
-		<tr>
-			<th>Choose</th>
-			<th>Song Name</th>
-			<th>Album Name</th>
-			<th>Artist Name</th>
-			<th>Featuring Artist Name</th>
-			<th>Song Genre</th>
-			<th>Song Lyric</th>
-		</tr>
-		
-		<?php	
-			while($baris = mysqli_fetch_array($resultGet,MYSQLI_BOTH)){
-				?>
-			<center>	
-				<tr>
-				<td><img src="images\<?php echo $baris['Album_Image']; ?>" style="width:200px;"></td>
-					<td><?php echo $baris['Song_Name']; ?></td>
-					<td><?php echo $baris['Album_Name']; ?></td>
-					<td><?php echo $baris['Artist_Name']; ?></td>
-					<td><?php echo $baris['Featuring_Artist_Name']; ?></td>
-					<td><?php echo $baris['Song_Genre']; ?></td>
-					<td><?php echo slug($baris['Song_Lyric']); ?></td>	
-				</tr>
-	
+		while($baris = mysqli_fetch_assoc($resultGet))
+        {
+            ?>
+
+
+  <br><img class="card-img-top" src="images\<?php echo $baris['Album_Image']; ?>" alt="Album Image Here">
+  <p class="card-text"><audio controls>
+  <source src="musics/<?php echo $baris['Song_Player']; ?>" type="audio/mp3"></p>
+
+<table border="1">
+<tr>
+<th colspan="2"><h3 class="card-title" ><b><?php echo $baris['Song_Name']; ?></b></h5> </th>
+
+</tr>
+<tr>
+  <td class="card-text">Artist : </td>
+  <th><p class="card-text"><?php echo $baris['Artist_Name']; ?></p></th>
+</tr>
+<tr>
+  <td class="card-text">Album Name : </td>
+  <th><p class="card-text"><?php echo $baris['Album_Name']; ?></p></th>
+</tr>
+<tr>
+  <td class="card-text">Featuring Artist : </td>
+  <th><p class="card-text"><?php echo $baris['Featuring_Artist_Name']; ?></p></th>
+</tr>
+<tr>
+  <td class="card-text">Song Genre : </td>
+  <th><p class="card-text"><?php echo $baris['Song_Genre']; ?></p></th>
+</tr>
+
+<tr>
+  <td class="card-text">Song Status : </td>
+  <th><p class="card-text"><?php if($baris['Song_Status']=="Pending"){echo "<font color='red'>";}else{echo "<font color='green'>";}
+   echo $baris['Song_Status']; ?></p></th>
+</tr>
+<tr>
+  <td class="card-text">Uploaded by : </td>
+  <th><p class="card-text"><?php echo $baris['UserID']; ?></p></th>
+</tr>
+</table>
+
+    
+  <p class="card-text">Song Lyrics :</p>
+  
+  <p class="card-text"><?php echo slug($baris['Song_Lyric']); ?></p>
+        
+
+
+<br>
+<a href="music_view.php"> Click here to go back </a>
+  
+
 <?php
 			}
 }

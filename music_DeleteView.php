@@ -78,7 +78,8 @@ if(!$link)
 }
 else
 {
-	$queryGet = "select * from music";
+	$UserID = $_SESSION['UserID'];
+	$queryGet = "select * from music where UserID = '$UserID'";
 	$resultGet = mysqli_query($link,$queryGet);
 	
 	$row = mysqli_num_rows($resultGet);

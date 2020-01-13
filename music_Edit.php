@@ -53,13 +53,14 @@ if(isset($_SESSION["UserID"])){
 <center>
 <?php
 
-$albumname = $_POST['albumname'];
+$songID = $_POST['songID'];
 $songname = $_POST['songname'];
+$albumname = $_POST['albumname'];
 $artistname = $_POST['artistname'];
 $featartistname = $_POST['featartistname'];
 $songgenre = $_POST['songgenre'];
-
 $songlyric = $_POST['songlyric'];
+$songstatus = $_POST['songstatus'];
 
 $host = "localhost";
 $user = "root";
@@ -94,7 +95,7 @@ if ($uploadOk == 0) {
 		echo "Sorry, there was an error uploading your file.";
 		$uploadOk = 0;
     }
-	$queryUpdate = "UPDATE MUSIC SET Song_Name = '".$songname."', Artist_Name = '".$artistname."', Featuring_Artist_Name = '".$featartistname."', Song_Genre =  '".$songgenre."', Album_Image = '".$albumimage."', Song_Lyric = '".$songlyric."' WHERE Album_Name = '".$albumname."' "; 
+	$queryUpdate = "UPDATE MUSIC SET Song_Name = '".$songname."', Album_Name = '".$albumname."', Artist_Name = '".$artistname."', Featuring_Artist_Name = '".$featartistname."', Song_Genre =  '".$songgenre."', Album_Image = '".$albumimage."', Song_Lyric = '".$songlyric."', Song_Status = '".$songstatus."' WHERE Song_ID = '".$songID."'  "; 
 	
 	$resultUpdate = mysqli_query($link, $queryUpdate);
 	

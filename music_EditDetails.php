@@ -56,7 +56,7 @@ if(isset($_SESSION["UserID"])){
 <center>
 <?php
 
-$songname = $_POST['songname'];
+$songID = $_POST['songID'];
 
 $host = "localhost";
 $user = "root";
@@ -71,7 +71,7 @@ if(!$link)
 }
 else
 {
-	$queryGet = "select * from music where Song_Name = '$songname' ";
+	$queryGet = "select * from music where Song_ID = '$songID' ";
 	$resultGet = mysqli_query($link,$queryGet);
 	
 	if(!$resultGet)
@@ -88,9 +88,9 @@ else
 		
 		while($baris = mysqli_fetch_assoc($resultGet))
 		{
-			
+			if($_SESSION["UserType"] == "User"){
 			?>
-		<table>
+			<table>
 		<tr>
 			<th>Song Name: </th>
 			<td><center><?php echo $baris['Song_Name']; ?></center></th>
@@ -121,18 +121,73 @@ else
 			<th>Song Lyric: </th>
 			<th><textarea type="text" name="songlyric" required><?php echo $baris['Song_Lyric']; ?></textarea></th>
 		</tr>
-		</table>		
-			<?php
-		}
-			?>
-			
+			</table>	
 			<input type="hidden" name="songname" value="<?php echo $songname ?>">
+			<input type="Submit" value="Update new details">
+			</form>
+			</center>
+			<?php
+			}
+			else {
+			?>
+			<table border="border">
+		<tr>
+			<th>Album Image: </th>
+			<td><img src="images\<?php echo $baris['Album_Image']; ?>" style="width:200px;"></td>
+		</tr>
+		<tr>
+			<th>Song Name: </th>
+			<td><center><?php echo $baris['Song_Name']; ?></center></th>
+		</tr>
+		
+		<tr>
+			<th>Album Name:</th>
+			<td><center><?php echo $baris['Album_Name']; ?></center></th>
+		</tr>
+		<tr>
+			<th>Artist Name: </th>
+			<td><center><?php echo $baris['Artist_Name']; ?></center></th>
+		</tr>
+		<tr>
+			<th>Feat Artist Name:</th>
+			<td><center><?php echo $baris['Featuring_Artist_Name']; ?></center></th>
+		</tr>
+		<tr>
+			<th>Song Genre: </th>
+			<td><center><?php echo $baris['Song_Genre']; ?></center></th>
+		</tr>
+		<tr>
+			<th>Song Lyric: </th>
+			<td><center><?php echo $baris['Song_Lyric']; ?></center></th>
+		</tr>
+				<tr>
+				<th>Song Status: </th>
+				<td><center>
+				<select name="songstatus">
+					<option value="Approved">Approve</option>
+					<option value="Pending">Incomplete</option>
+				</select>
+				</center>
+				</td>
+			</tr>
+			</table>	
+			
+			<input type="hidden" name="songID" value="<?php echo $baris['Song_ID']; ?>">
+			<input type="hidden" name="songname" value="<?php echo $baris['Song_Name']; ?>">
+			<input type="hidden" name="albumname" value="<?php echo $baris['Album_Name']; ?>">
+			<input type="hidden" name="artistname" value="<?php echo $baris['Artist_Name']; ?>">
+			<input type="hidden" name="featartistname" value="<?php echo $baris['Featuring_Artist_Name']; ?>">
+			<input type="hidden" name="songgenre" value="<?php echo $baris['Song_Genre']; ?>">
+			<input type="hidden" name="songlyric" value="<?php echo $baris['Song_Lyric']; ?>">
+			<input type="hidden" name="albumimage" value="<?php echo $baris['Album_Image']; ?>">
 			<input type="Submit" value="Update new details">
 			</form>
 			</center>
 			<?php
 	}
 	
+}
+}
 }
 	?>
 

@@ -1,5 +1,9 @@
 <?php 
-
+function slug($z){
+	$z = nl2br($z);
+	$z = str_replace("'", "'", $z);
+	return $z;
+}
 session_start();
 
 if(isset($_SESSION["UserID"])){
@@ -84,7 +88,9 @@ else
             ?>
 
 
-  <br><img class="card-img-top" src="images\<?php echo $baris['Album_Image']; ?>" alt="Album Image Here"><br><br>
+  <br><img class="card-img-top" src="images\<?php echo $baris['Album_Image']; ?>" alt="Album Image Here">
+  <p class="card-text"><audio controls>
+  <source src="musics\<?php echo $baris['Song_Player']; ?>" type="audio/mp3"></p>
 
 <table border="1">
 <tr>
@@ -107,24 +113,25 @@ else
   <td class="card-text">Song Genre : </td>
   <th><p class="card-text"><?php echo $baris['Song_Genre']; ?></p></th>
 </tr>
-<tr>
-  <td class="card-text">Song Player : </td>
-  <th><p class="card-text"><audio controls>
-  <source src="musics\<?php echo $baris['Song_Player']; ?>" type="audio/mp3"></p></th>
-</tr>
+
 <tr>
   <td class="card-text">Song Status : </td>
-  <th><p class="card-text"><?php echo $baris['Song_Status']; ?></p></th>
+  <th><p class="card-text"><?php if($baris['Song_Status']=="Pending"){echo "<font color='red'>";}else{echo "<font color='green'>";}
+   echo $baris['Song_Status']; ?></p></th>
 </tr>
 <tr>
   <td class="card-text">Uploaded by : </td>
   <th><p class="card-text"><?php echo $baris['UserID']; ?></p></th>
 </tr>
-<tr>
-  <td class="card-text">Song Lyrics : </td>
-  <th><p class="card-text"><?php echo $baris['Song_Lyric']; ?></p></th>
-</tr>
 </table>
+
+    
+  <p class="card-text">Song Lyrics :</p>
+  
+  <p class="card-text"><?php echo slug($baris['Song_Lyric']); ?></p>
+        
+
+
 <br>
 <a href="music_view.php"> Click here to go back </a>
   

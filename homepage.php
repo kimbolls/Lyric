@@ -1,9 +1,14 @@
 <?php 
-
 session_start();
 
 if(isset($_SESSION["UserID"])){
     ?>
+
+<style>
+body {
+	background-image: url('images/HomepageBG.jpg')
+}
+</style>
 
 <html>
 <head>
@@ -11,6 +16,7 @@ if(isset($_SESSION["UserID"])){
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <title> Hi-Fi - Music Registration </title>
+
 <body>
 <?php 
     if($_SESSION["UserType"]=="Admin"){

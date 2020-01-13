@@ -26,6 +26,7 @@ $songstatus = "Pending";
 $userID = $_SESSION['UserID'];
 $songlyric = slug($songlyric);
 
+
 if(isset($featartistname))
 {
 	$featartistname = "-";

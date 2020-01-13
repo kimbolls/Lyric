@@ -20,7 +20,8 @@ else
     $resultcheck = mysqli_query($link,$querycheck);
 
     if(mysqli_num_rows($resultcheck)==0){
-        echo "User ID does not exists";
+        echo "<center>User ID does not exists";
+        echo "<br><a href='loginmenu.html'> Login again </a></center>";
     }
     else
     {

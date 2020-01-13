@@ -72,6 +72,7 @@ else
         while($baris = mysqli_fetch_assoc($resultGet))
         {
             
+            
     ?>
 <div id="main">
 <div class="w3-teal">
@@ -86,16 +87,71 @@ else
 <center>
 <table>
 
-        <img src="images\<?php echo $baris['User_Image']; ?>">
+<img src="images\<?php echo $baris['User_Image']; ?>">
 <h1><?php echo $userID; ?></h1>
-<p> User type :   <?php echo $usertype; ?> </p>
-
-        </center>
-<?php 
+<p><?php echo $usertype; ?> User</p>
+<?php
 }
-}
+    $queryGet = "select * from music where UserID = '$userID'";
+	$resultGet = mysqli_query($link,$queryGet);
+	
+	if(!$resultGet)
+	{
+		die ("Invalid Query - get Music list: ".mysqli_error($link));
+	}
+	else
+	{
 
+        while($baris = mysqli_fetch_assoc($resultGet))
+        {
+            $resultGet = mysqli_query($link,$queryGet);
+$row = mysqli_num_rows($resultGet);
+	if($row > 0){
+	if(!$resultGet)
+	{
+		die("Unable to get query: ". mysqli_error($link));
+	}
+	else
+	{
+		?>
+		<center>
+		<table border = "2" >
+		<tr>
+			<th>Album Image</th>
+			<th>Song Name</th>
+			<th>Album Name</th>
+			<th>Artist Name</th>
+			
+		</tr>
+		
+		<?php	
+			while($baris = mysqli_fetch_array($resultGet,MYSQLI_BOTH)){
+				?>
+			<center>	<form action="music_viewDetails.php" method="POST">
+				<tr>
+				<td><button type="submit" class="hover" name="songID" value="<?php echo $baris['Song_ID']; ?>";>
+			<img src="images\<?php echo $baris['Album_Image']; ?>" width="150px" />
+			</button></form></td>
+					<td><?php echo $baris['Song_Name']; ?></td>
+					<td><?php echo $baris['Album_Name']; ?></td>
+					<td><?php echo $baris['Artist_Name']; ?></td>
+						
+				</tr>
+            
+	
+<?php
+            }    
+        }
+        ?> 
+        </table> <?php
     }
+    else
+echo "You have no music uploaded";
+        }
+    }
+}
+}
+
 }
 else{
     echo "No session exists or session has expired. Please log in again. <br>";

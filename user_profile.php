@@ -150,7 +150,7 @@ $row = mysqli_num_rows($resultGet);
 				?>
 			<form action="music_viewDetails.php" method="POST">
 				<tr>
-				<td scope="row"><button type="submit" class="hover" name="songID" value="<?php echo $baris['Song_ID']; ?>";>
+				<td scope="row"><button type="submit" class="hover hilang" name="songID" value="<?php echo $baris['Song_ID']; ?>";>
 				<div class="view overlay">
     <img src="images\<?php echo $baris['Album_Image']; ?>" width="150px" class="img-fluid " alt="smaple image">
     <div class="mask flex-center rgba-white-strong">

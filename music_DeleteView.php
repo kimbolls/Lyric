@@ -116,7 +116,7 @@ else
 			?>
 			<tr>
 			<th>
-			<button type="submit" name="songname" value="<?php echo $baris['Song_Name']; ?>";></td>
+			<button type="submit" name="songname" class="hilang"value="<?php echo $baris['Song_Name']; ?>";></td>
 			<div class="view overlay">
   <img src="images\<?php echo $baris['Album_Image']; ?>" width="150px" class="img-fluid " alt="smaple image">
   <div class="mask flex-center rgba-white-strong">

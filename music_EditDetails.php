@@ -141,6 +141,7 @@ else
 				
 			<input type="hidden" name="songID" value="<?php echo $baris['Song_ID']; ?>">
 			<input type="hidden" name="songstatus" value="<?php echo $baris['Song_Status']; ?>">
+			<br>
 			<button onclick="window.location.href='music_EditView.php';">Go back </button>
 			<input type="Submit" value="Update new details">
 			</form>
@@ -201,7 +202,7 @@ else
 			<input type="hidden" name="songgenre" value="<?php echo $baris['Song_Genre']; ?>">
 			<input type="hidden" name="songlyric" value="<?php echo $baris['Song_Lyric']; ?>">
 			<input type="hidden" name="albumimage" value="<?php echo $baris['Album_Image']; ?>">
-			<button onclick="window.location.href='music_EditView.php';">Go back </button>
+			<br><button onclick="window.location.href='music_EditView.php';">Go back </button>
 			<input type="Submit" value="Update new details">
 			</form>
 			</center>

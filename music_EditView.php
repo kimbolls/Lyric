@@ -19,15 +19,15 @@ if(isset($_SESSION["UserID"])){
 </head>
 
 <head><script src="music_script.js"></script>
-<style>
-	.hover:hover {
-  opacity: 0.8;
-  filter: alpha(opacity=50);
-}
-</style>
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <link rel="stylesheet" href="MBD/css/mdb.min.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<title> Hi-Fi - Music Record </title>
+<title> Hi-Fi - Music Record </title></head>
 <body>
 <?php 
     if($_SESSION["UserType"]=="Admin"){
@@ -65,7 +65,7 @@ if(isset($_SESSION["UserID"])){
 <div class="w3-teal">
   <button id="openNav" class="w3-button w3-teal w3-xlarge" onclick="w3_open()">&#9776;</button>
   <div class="w3-container">
-  <h1>Music Record</h1>
+  <h1>Edit Music Record</h1>
   </div>
   </div>
   <br><br>
@@ -109,38 +109,37 @@ else
 		<center>
 		<table border = "2" >
 		<tr>
-			<th>Choose</th>
+			<th>Album Image</th>
 			<th>Song Name</th>
 			<th>Album Name</th>
 			<th>Artist Name</th>
 			
 		</tr>
-<form action="music_EditDetails.php" name="UpdateForm" method="POST">
-
-<?php 
-	
-	while($baris = mysqli_fetch_array($resultGet, MYSQLI_BOTH)) 
-	{
-		?>
 		
-		<tr>
-			<th>
-			<button type="submit" name="songID" class="hover" value="<?php echo $baris['Song_ID']; ?>";></td>
-			<img src="images\<?php echo $baris['Album_Image']; ?>" />
-			</button>
-	</th>
-			<td><?php echo $baris['Song_Name']; ?></td>
-			<td><?php echo $baris['Album_Name']; ?></td>
-			<td><?php echo $baris['Artist_Name']; ?></td>
-			
-		</tr>
+		<?php	
+			while($baris = mysqli_fetch_array($resultGet,MYSQLI_BOTH)){
+				?>
+			<center>	<form action="music_EditDetails.php" method="POST">
+				<tr>
+				<td><button type="submit" class="hover" name="songID" value="<?php echo $baris['Song_ID']; ?>";>
+				<div class="view overlay">
+  <img src="images\<?php echo $baris['Album_Image']; ?>" width="150px" class="img-fluid " alt="smaple image">
+  <div class="mask flex-center rgba-white-strong">
+      <p class="purple-text"><b>Edit Song</b></p>
+  </div>
+			</button></form></td>
+					<td><?php echo $baris['Song_Name']; ?></td>
+					<td><?php echo $baris['Album_Name']; ?></td>
+					<td><?php echo $baris['Artist_Name']; ?></td>
+						
+				</tr>
 <?php 
 	}
  ?>
 	</table>
 	<br>
 	</form>
-	<h8> You can click on any Album Image to <b>edit</b> information about the music </h8>
+	<p class="disclaimer"> You can click on any Album Image to <font style="color:purple;font-weight:bold">edit</font> information about the music </p>
 <?php  
 	}
 }
@@ -163,4 +162,8 @@ else
     echo "<a href=loginmenu.html> Login </a>";
 }
 
-?>
+?><script type="text/javascript" src="MBD/js/jquery.min.js"></script>
+<script type="text/javascript" src="MBD/js/popper.min.js"></script>
+<script type="text/javascript" src="MBD/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="MBD/js/mdb.min.js"></script>
+</body>

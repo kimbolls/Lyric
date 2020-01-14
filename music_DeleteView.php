@@ -98,13 +98,13 @@ else
 	else
 	{
 		?>
-		<table border="2">
+		<center>
+		<table border = "2" >
 		<tr>
 			<th>Album Image</th>
 			<th>Song Name</th>
 			<th>Album Name</th>
 			<th>Artist Name</th>
-			
 		</tr>
 		<form action="music_Delete.php" name="DeleteForm" method="POST" onSubmit="return confirm('Are you sure?')">
 		
@@ -113,7 +113,8 @@ else
 		while($baris = mysqli_fetch_array($resultGet,MYSQLI_BOTH))
 		{
 			?>
-			<tr><th>
+			<tr>
+			<th>
 			<button type="submit" name="songname" value="<?php echo $baris['Song_Name']; ?>";></td>
 			<div class="view overlay">
   <img src="images\<?php echo $baris['Album_Image']; ?>" width="150px" class="img-fluid " alt="smaple image">
@@ -121,13 +122,12 @@ else
       <p class="red-text"><b>Delete Song</b></p>
   </div>
 			</button>
-		</th>
+			</th>
 				
 				<td><?php echo $baris['Song_Name'];?></td>
 				<td><?php echo $baris['Album_Name'];?></td>
 				<td><?php echo $baris['Artist_Name'];?></td>
 			</tr>
-			
 <?php
 		}
 		}

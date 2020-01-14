@@ -92,7 +92,8 @@ else
 	else
 	{
 		?>
-		<table border="2">
+		<center>
+		<table border = "2" >
 		<tr>
 			<th>Album Image</th>
 			<th>Song Name</th>
@@ -100,24 +101,20 @@ else
 			<th>Artist Name</th>
 			
 		</tr>
-		<form action="music_Delete.php" name="DeleteForm" method="POST" onSubmit="return confirm('Are you sure?')">
 		
-		
-		<?php
-		while($baris = mysqli_fetch_array($resultGet,MYSQLI_BOTH))
-		{
-			?>
-			<tr><th>
-			<button type="submit" name="songname" value="<?php echo $baris['Song_Name']; ?>";></td>
-			<img class="image" src="images\<?php echo $baris['Album_Image']; ?>" />
-			</button>
-		</th>
-				
-				<td><?php echo $baris['Song_Name'];?></td>
-				<td><?php echo $baris['Album_Name'];?></td>
-				<td><?php echo $baris['Artist_Name'];?></td>
-			</tr>
-			
+		<?php	
+			while($baris = mysqli_fetch_array($resultGet,MYSQLI_BOTH)){
+				?>
+			<center>	<form action="music_viewDetails.php" method="POST">
+				<tr>
+				<td><button type="submit" class="hover" name="songID" value="<?php echo $baris['Song_ID']; ?>";>
+			<img src="images\<?php echo $baris['Album_Image']; ?>" width="150px" />
+			</button></form></td>
+					<td><?php echo $baris['Song_Name']; ?></td>
+					<td><?php echo $baris['Album_Name']; ?></td>
+					<td><?php echo $baris['Artist_Name']; ?></td>
+						
+				</tr>
 <?php
 		}
 		}

@@ -109,31 +109,26 @@ else
 		<center>
 		<table border = "2" >
 		<tr>
-			<th>Choose</th>
+			<th>Album Image</th>
 			<th>Song Name</th>
 			<th>Album Name</th>
 			<th>Artist Name</th>
 			
 		</tr>
-<form action="music_EditDetails.php" name="UpdateForm" method="POST">
-
-<?php 
-	
-	while($baris = mysqli_fetch_array($resultGet, MYSQLI_BOTH)) 
-	{
-		?>
 		
-		<tr>
-			<th>
-			<button type="submit" name="songID" class="hover" value="<?php echo $baris['Song_ID']; ?>";></td>
-			<img class="image" src="images\<?php echo $baris['Album_Image']; ?>" />
-			</button>
-	</th>
-			<td><?php echo $baris['Song_Name']; ?></td>
-			<td><?php echo $baris['Album_Name']; ?></td>
-			<td><?php echo $baris['Artist_Name']; ?></td>
-			
-		</tr>
+		<?php	
+			while($baris = mysqli_fetch_array($resultGet,MYSQLI_BOTH)){
+				?>
+			<center>	<form action="music_viewDetails.php" method="POST">
+				<tr>
+				<td><button type="submit" class="hover" name="songID" value="<?php echo $baris['Song_ID']; ?>";>
+			<img src="images\<?php echo $baris['Album_Image']; ?>" width="150px" />
+			</button></form></td>
+					<td><?php echo $baris['Song_Name']; ?></td>
+					<td><?php echo $baris['Album_Name']; ?></td>
+					<td><?php echo $baris['Artist_Name']; ?></td>
+						
+				</tr>
 <?php 
 	}
  ?>

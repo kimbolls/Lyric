@@ -69,7 +69,7 @@ if ($uploadOk == 0) {
      
         if (move_uploaded_file($_FILES["songplayer"]["tmp_name"], $target_file)) {
         } else {
-        echo "Sorry, there was an error uploading your music.";
+        echo "Sorry, there was an error uploading your music. because ".$_FILES['songplayer']["error"];
         $uploadOk = 0;
         }
     

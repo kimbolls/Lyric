@@ -8,6 +8,12 @@ if(isset($_SESSION["UserID"])){
 <script src="music_script.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="style.css" type="text/css">
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <link rel="stylesheet" href="MBD/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <link rel="stylesheet" href="MBD/css/mdb.min.css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <title> My Profile </title>
 <body>
@@ -83,18 +89,24 @@ else
 </center>
   </div>
 </div>
-<br><br>
+<div class="row">
+<div class="col">
+<div class="leftside">
 <center>
-<table>
 
+	
 <img src="images\<?php echo $baris['User_Image']; ?>">
 <h1><?php echo $userID; ?></h1>
 <p><?php echo $usertype; ?> User</p>
+		</div>
+	</div>
 <?php
 }
     $queryGet = "select * from music where UserID = '$userID'";
 	$resultGet = mysqli_query($link,$queryGet);
+	?>
 	
+	<?php 
 	if(!$resultGet)
 	{
 		die ("Invalid Query - get Music list: ".mysqli_error($link));
@@ -114,36 +126,54 @@ $row = mysqli_num_rows($resultGet);
 	else
 	{
 		?>
+		</center>
+		<div class="col">
+		<div class="rightside">
 		<center>
-		<table border = "2" >
+		<table class="table table-hover" >
+			<h2>Your Musics </h2>
+			<thead class="black white-text">
 		<tr>
-			<th>Album Image</th>
-			<th>Song Name</th>
-			<th>Album Name</th>
-			<th>Artist Name</th>
+			<th scope="col">Album Image</th>
+			<th scope="col">Song Name</th>
+			<th scope="col">Album Name</th>
+			<th scope="col">Artist Name</th>
 			
 		</tr>
+	</thead>
+	<tbody>
 		
 		<?php	
 			while($baris = mysqli_fetch_array($resultGet,MYSQLI_BOTH)){
 				?>
-			<center>	<form action="music_viewDetails.php" method="POST">
+			<center><form action="music_viewDetails.php" method="POST">
 				<tr>
-				<td><button type="submit" class="hover" name="songID" value="<?php echo $baris['Song_ID']; ?>";>
-			<img src="images\<?php echo $baris['Album_Image']; ?>" width="150px" />
+				<td scope="row"><button type="submit" class="hover" name="songID" value="<?php echo $baris['Song_ID']; ?>";>
+				<div class="view overlay">
+    <img src="images\<?php echo $baris['Album_Image']; ?>" width="150px" class="img-fluid " alt="smaple image">
+    <div class="mask flex-center rgba-white-strong">
+        <p class="green-text"><b>View Song</b></p>
+    </div>
 			</button></form></td>
 					<td><?php echo $baris['Song_Name']; ?></td>
 					<td><?php echo $baris['Album_Name']; ?></td>
 					<td><?php echo $baris['Artist_Name']; ?></td>
 						
 				</tr>
+			
             
 	
 <?php
             }    
         }
-        ?> 
-        </table> <?php
+		?> 
+		</tbody>
+		</table>
+		<p class="disclaimer"> You can click on album image to view more detailed information about the song </p>
+	</div>
+	</div>
+
+ <?php
     }
     else
 echo "You have no music uploaded";
@@ -158,3 +188,8 @@ else{
     echo "<a href=loginmenu.html> Login </a>";
 }
 ?>
+<script type="text/javascript" src="MBD/js/jquery.min.js"></script>
+<script type="text/javascript" src="MBD/js/popper.min.js"></script>
+<script type="text/javascript" src="MBD/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="MBD/js/mdb.min.js"></script>
+</body>

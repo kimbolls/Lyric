@@ -126,7 +126,7 @@ else
 		<tr>
 			<th>
 			<button type="submit" name="songID" class="hover" value="<?php echo $baris['Song_ID']; ?>";></td>
-			<img class="image" src="images\<?php echo $baris['Album_Image']; ?>" />
+			<img src="images\<?php echo $baris['Album_Image']; ?>" />
 			</button>
 	</th>
 			<td><?php echo $baris['Song_Name']; ?></td>

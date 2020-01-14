@@ -16,6 +16,7 @@ if(isset($_SESSION["UserID"])){
 <head><script src="music_script.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="style.css" type="text/css">
+
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <title> Hi-Fi - Music Record </title>
 </head>

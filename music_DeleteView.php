@@ -17,6 +17,12 @@ if(isset($_SESSION["UserID"])){
 
 <head><script src="music_script.js"></script>
 <link rel="stylesheet" type="text/css" href="style.css">
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <link rel="stylesheet" href="MBD/css/mdb.min.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <title> Hi-Fi - Music Record </title></head>
@@ -109,7 +115,11 @@ else
 			?>
 			<tr><th>
 			<button type="submit" name="songname" value="<?php echo $baris['Song_Name']; ?>";></td>
-			<img class="image" src="images\<?php echo $baris['Album_Image']; ?>" />
+			<div class="view overlay">
+  <img src="images\<?php echo $baris['Album_Image']; ?>" width="150px" class="img-fluid " alt="smaple image">
+  <div class="mask flex-center rgba-white-strong">
+      <p class="red-text"><b>Delete Song</b></p>
+  </div>
 			</button>
 		</th>
 				
@@ -146,3 +156,8 @@ else{
 
 ?>
 
+<script type="text/javascript" src="MBD/js/jquery.min.js"></script>
+<script type="text/javascript" src="MBD/js/popper.min.js"></script>
+<script type="text/javascript" src="MBD/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="MBD/js/mdb.min.js"></script>
+</body>

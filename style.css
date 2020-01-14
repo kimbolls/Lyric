@@ -42,7 +42,8 @@ position:relative;
   padding: 16px 32px;
 }
 
-td{
+td,th{
+  color:#aaccff;
     text-align:center;
 }
 
@@ -57,15 +58,49 @@ button{
 border: none;
 background: none;
 }
-	
-.leftside,.rightside{
+
+.maincolor{
+  color:#aaccff;
+  background-color:#464159;
+}
+.secondcolor{
+  color:#aaccff;
+  background-color:#373346;
+ 
+}
+h1{
+  color:#aaccff;
+}
+.leftside{
+  background-color:rgba(70, 65, 89,0.4);
+  border-radius:20px;
+  margin-top:30px;
+  margin-left:10px;
+  height:60vh;
+  width:100%;
+}
+
+.rightside{
   margin-top:30px;
   height:100vh;
   width:100%;
-
 }
 
 .disclaimer{
+  text-align:center;
   font-size:15px;
 }
+
+body{
+  color:#aaccff;
+  background-image: url('images/bg1.jpg');
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+  
+}
+
+.hamburger{
+  color:white;
+}
+
 

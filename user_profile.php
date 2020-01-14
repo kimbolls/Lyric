@@ -7,7 +7,7 @@ if(isset($_SESSION["UserID"])){
     <head>
 <script src="music_script.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="style.css" type="text/css">
+
 <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -15,14 +15,15 @@ if(isset($_SESSION["UserID"])){
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
   <link rel="stylesheet" href="MBD/css/mdb.min.css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="style.css" type="text/css">
 <title> My Profile </title>
 <body>
 
 <?php 
     if($_SESSION["UserType"]=="Admin"){
         ?>
-<div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="mySidebar">
-<button class="w3-bar-item w3-button w3-large" onclick="w3_close()">Close &times;</button>
+<div class="w3-sidebar w3-bar-block w3-card w3-animate-left " style="display:none" id="mySidebar">
+<button class="w3-bar-item w3-button  w3-large" onclick="w3_close()">Close &times;</button>
 <a href="homepage.php" class="w3-bar-item w3-button"> Home </a>
 <a href="user_profile.php" class="w3-bar-item w3-button"> My Profile</a>
   <a href="music_view.php" class="w3-bar-item w3-button"> View Music </a>
@@ -33,8 +34,8 @@ if(isset($_SESSION["UserID"])){
     }
     else{
         ?>
-    <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="mySidebar">
-  <button class="w3-bar-item w3-button w3-large"
+    <div class="w3-sidebar w3-bar-block w3-card w3-animate-left secondcolor" style="display:none" id="mySidebar">
+  <button class="w3-bar-item w3-button w3-large "
   onclick="w3_close()">Close &times;</button>
   <a href="homepage.php" class="w3-bar-item w3-button"> Home </a>
   <a href="user_profile.php" class="w3-bar-item w3-button"> My Profile </a>
@@ -81,22 +82,22 @@ else
             
     ?>
 <div id="main">
-<div class="w3-teal">
-  <button id="openNav" class="w3-button w3-teal w3-xlarge" onclick="w3_open()">&#9776;</button>
+<div class="maincolor">
+  <button id="openNav" class="w3-button maincolor w3-xlarge" onclick="w3_open()">&#9776;</button>
   <div class="w3-container">
 <center>
-<h1>My Profile  </h1>
+<h1 style="margin-bottom:30px">My Profile  </h1>
 </center>
   </div>
 </div>
 <div class="row">
-<div class="col">
+<div class="col-sm-4">
 <div class="leftside">
 <center>
 
-	
+<br>	
 <img src="images\<?php echo $baris['User_Image']; ?>">
-<h1><?php echo $userID; ?></h1>
+<h2><?php echo $userID; ?></h2>
 <p><?php echo $usertype; ?> User</p>
 		</div>
 	</div>
@@ -129,8 +130,8 @@ $row = mysqli_num_rows($resultGet);
 		</center>
 		<div class="col">
 		<div class="rightside">
-		<center>
-		<table class="table table-hover" >
+		
+		<table class="table table-hover">
 			<h2>Your Musics </h2>
 			<thead class="black white-text">
 		<tr>
@@ -138,7 +139,8 @@ $row = mysqli_num_rows($resultGet);
 			<th scope="col">Song Name</th>
 			<th scope="col">Album Name</th>
 			<th scope="col">Artist Name</th>
-			
+			<th scope="col">Song Status </th>
+			<th scope="col">Play Song </th>
 		</tr>
 	</thead>
 	<tbody>
@@ -146,7 +148,7 @@ $row = mysqli_num_rows($resultGet);
 		<?php	
 			while($baris = mysqli_fetch_array($resultGet,MYSQLI_BOTH)){
 				?>
-			<center><form action="music_viewDetails.php" method="POST">
+			<form action="music_viewDetails.php" method="POST">
 				<tr>
 				<td scope="row"><button type="submit" class="hover" name="songID" value="<?php echo $baris['Song_ID']; ?>";>
 				<div class="view overlay">
@@ -158,7 +160,9 @@ $row = mysqli_num_rows($resultGet);
 					<td><?php echo $baris['Song_Name']; ?></td>
 					<td><?php echo $baris['Album_Name']; ?></td>
 					<td><?php echo $baris['Artist_Name']; ?></td>
-						
+					<td><b><?php if($baris['Song_Status']=="Pending"){echo "<font color='red'>";}else{echo "<font color='green'>";}echo $baris['Song_Status']; ?></b></td>
+					<td><audio controls>
+  <source src="musics/<?php echo $baris['Song_Player']; ?>" type="audio/mp3"></td>
 				</tr>
 			
             
@@ -169,7 +173,7 @@ $row = mysqli_num_rows($resultGet);
 		?> 
 		</tbody>
 		</table>
-		<p class="disclaimer"> You can click on album image to view more detailed information about the song </p>
+		<p class="disclaimer"> You can click on album image to <font style="color:green;font-weight:bold">view</font> more detailed information about the song </p>
 	</div>
 	</div>
 

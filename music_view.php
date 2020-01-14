@@ -139,7 +139,7 @@ else
 				</table>
 <br>
 
-<h8> You can click on any Album Image to view more detailed information about the music </h8>
+<p class="disclaimer"> You can click on any Album Image to view more detailed information about the music </p>
 <?php
 }
 	}

@@ -96,7 +96,10 @@ body{
   background-image: url('images/bg1.jpg');
   background-repeat:no-repeat;
   background-attachment:fixed;
-  
+}
+
+audio { 
+  height: 40px; 
 }
 
 

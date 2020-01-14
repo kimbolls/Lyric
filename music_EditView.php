@@ -27,13 +27,14 @@ if(isset($_SESSION["UserID"])){
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" type="text/css" href="style.css">
 <title> Hi-Fi - Music Record </title></head>
 <body>
 <?php 
     if($_SESSION["UserType"]=="Admin"){
         ?>
-<div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="mySidebar">
-<button class="w3-bar-item w3-button w3-large" onclick="w3_close()">Close &times;</button>
+<div class="w3-sidebar w3-bar-block w3-card w3-animate-left secondcolor" style="display:none" id="mySidebar">
+<button class="w3-bar-item w3-button w3-large secondcolor" onclick="w3_close()">Close &times;</button>
 <a href="homepage.php" class="w3-bar-item w3-button"> Home </a>
 <a href="user_profile.php" class="w3-bar-item w3-button"> My Profile</a>
   <a href="music_view.php" class="w3-bar-item w3-button"> View Music </a>
@@ -44,8 +45,8 @@ if(isset($_SESSION["UserID"])){
     }
     else{
         ?>
-    <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="mySidebar">
-  <button class="w3-bar-item w3-button w3-large"
+    <div class="w3-sidebar w3-bar-block w3-card w3-animate-left secondcolor" style="display:none" id="mySidebar">
+  <button class="w3-bar-item w3-button w3-large secondcolor"
   onclick="w3_close()">Close &times;</button>
   <a href="homepage.php" class="w3-bar-item w3-button"> Home </a>
   <a href="user_profile.php" class="w3-bar-item w3-button"> My Profile</a>
@@ -62,8 +63,8 @@ if(isset($_SESSION["UserID"])){
     ?>
 <div id="main">
 
-<div class="w3-teal">
-  <button id="openNav" class="w3-button w3-teal w3-xlarge" onclick="w3_open()">&#9776;</button>
+<div class="maincolor">
+  <button id="openNav" class="w3-button w3-xlarge maincolor" onclick="w3_open()">&#9776;</button>
   <div class="w3-container">
   <h1>Edit Music Record</h1>
   </div>

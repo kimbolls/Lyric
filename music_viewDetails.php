@@ -137,7 +137,7 @@ else
 
 
 <br>
-<a href="music_view.php"> Click here to go back </a>
+<a href="music_view.php"><p style="color:blue;"> Click here to go back </style></a>
   
 
 <?php

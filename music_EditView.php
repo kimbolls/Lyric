@@ -119,7 +119,7 @@ else
 		<?php	
 			while($baris = mysqli_fetch_array($resultGet,MYSQLI_BOTH)){
 				?>
-			<center>	<form action="music_viewDetails.php" method="POST">
+			<center>	<form action="music_EditDetails.php" method="POST">
 				<tr>
 				<td><button type="submit" class="hover" name="songID" value="<?php echo $baris['Song_ID']; ?>";>
 			<img src="images\<?php echo $baris['Album_Image']; ?>" width="150px" />

@@ -22,7 +22,7 @@ if(isset($_SESSION["UserID"])){
 <?php 
     if($_SESSION["UserType"]=="Admin"){
         ?>
-<div class="w3-sidebar w3-bar-block w3-card w3-animate-left " style="display:none" id="mySidebar">
+<div class="w3-sidebar w3-bar-block w3-card w3-animate-left secondcolor" style="display:none" id="mySidebar">
 <button class="w3-bar-item w3-button  w3-large" onclick="w3_close()">Close &times;</button>
 <a href="homepage.php" class="w3-bar-item w3-button"> Home </a>
 <a href="user_profile.php" class="w3-bar-item w3-button"> My Profile</a>

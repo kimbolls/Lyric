@@ -57,11 +57,11 @@ if ($uploadOk == 0) {
     if (move_uploaded_file($_FILES["albumimage"]["tmp_name"], $target_file)) {
       
     } else {
-		echo "Sorry, there was an error uploading your image .";
+		echo "Sorry, there was an error uploading your image . Error value: ".$_FILES["albumimage"]["error"];
 		$uploadOk = 0;
     }
     
-    $songplayer= basename($_FILES['songplayer']["name"]);
+    $songplayer= basename($_FILES["songplayer"]["name"]);
     $target_dir = "musics/";
     $target_file = $target_dir . basename($_FILES['songplayer']["name"]);
     $uploadOk = 1;
@@ -69,7 +69,7 @@ if ($uploadOk == 0) {
      
         if (move_uploaded_file($_FILES["songplayer"]["tmp_name"], $target_file)) {
         } else {
-        echo "Sorry, there was an error uploading your music. because ".$_FILES['songplayer']["error"];
+        echo "Sorry, there was an error uploading your music. Error value: ".$_FILES["songplayer"]["error"];
         $uploadOk = 0;
         }
     

@@ -94,7 +94,7 @@ else
 {
 	if($_SESSION['UserType'] == "Admin")
 	{
-	$queryGet = "select * from music";
+	$queryGet = "select * from music where Song_Status = 'Pending'";
 	}
 	else
 	{	

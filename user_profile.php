@@ -138,7 +138,7 @@ $row = mysqli_num_rows($resultGet);
 		<div class="rightside">
 		
 		<table class="table table-hover">
-			<h2>Your Musics </h2>
+			<center><h2>Your Musics </h2></center>
 			<thead class="black white-text">
 		<tr>
 			<th scope="col">Album Image</th>

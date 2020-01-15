@@ -21,9 +21,7 @@ if(isset($_SESSION["UserID"])){
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" type="text/css" href="style.css">
 <style>
-	table{
-		border
-	}
+	
 	tr:nth-child(odd){
 		background-color:rgba(70, 65, 89,0.4);
 	}

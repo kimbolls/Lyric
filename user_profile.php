@@ -101,13 +101,10 @@ else
 
 <br>	
 <img src="images\<?php echo $baris['User_Image']; ?>">
-<form action="user_profilEdit.php" method="post">	
 <h2><?php echo $userID; ?></h2>
 <p><?php echo $usertype; ?> User</p>
 <p><?php echo $baris['User_Bio']; ?> </p>
-
-<button type="submit" value="<? echo $baris['User_ID']; ?>">Edit profile </button>
-		</form>
+<a class="cancel" href="user_profileEdit.php"> Edit Profile </a>
 		</div>
 	</div>
 <?php

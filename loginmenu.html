@@ -2,13 +2,6 @@
 
 <head>
 <title> Login </title>
-<style>
-.center {
-
-  padding: 180px;
-  text-align: center;
-}
-</style>
 <script src="music_script.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -20,6 +13,21 @@
   <link rel="stylesheet" href="MBD/css/mdb.min.css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="style.css" type="text/css">
+<style>
+.center {
+
+  padding: 180px;
+  text-align: center;
+}
+input[type=text],input[type=password] {
+  transition: ease-in-out, width .35s ease-in-out;
+  width:180px;
+}
+input[type=text]:focus,input[type=password]:focus {
+  width:250px;
+}
+</style>
+
 <!--   script   -->
 <script type="text/javascript" src="MBD/js/jquery.min.js"></script>
 <script type="text/javascript" src="MBD/js/popper.min.js"></script>
@@ -29,14 +37,17 @@
 
 <body>
 <center>
-<div class="center">
-<h1> Welcome to Hi-Fi! </h1>
+<div class="center ">
+<h1 style="font-size: 60px"> Welcome to Hi-Fi! </h1><br><br>
+<div class="login">
+<h2> Sign up</h2><br>
 <form action="login.php" method="post">
   
-    <input type="text" style="width:250px" name="UserID" placeholder="Enter User ID" required><br>
-    <input type="password" style="width:250px"name="UserPwd" placeholder="Enter Password" required><br><br>
-    <input type="submit" style="width:250px" value="LOGIN">
+    <input type="text" style="height:50px" name="UserID" placeholder="User ID" required><br>
+    <input type="password" style="height:50px"name="UserPwd" placeholder="Password" required><br><br>
+    <input type="submit" class="cancel" style="width:200px" value="LOGIN">
 </form>
+</div>
 </div>
 </center>
 </body>

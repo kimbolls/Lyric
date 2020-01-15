@@ -56,7 +56,7 @@ body {
   <button id="openNav" class="w3-button maincolor w3-xlarge" onclick="w3_open()">&#9776;</button>
   <div class="w3-container">
 <center>
-<h1> WELCOME, Hi <?php echo $_SESSION["UserID"];?> </h1>
+<h1> Welcome to Hi-Fi, <?php echo $_SESSION["UserID"];?> </h1>
 
 <form name="Search" action="music_searchview.php" method="POST">
 Search:	<input type="text" name="search" required>

@@ -66,8 +66,8 @@ Search:	<input type="text" name="search" required>
  </div>
 
 
-  <div class="homemenu"  style="height:80vh;">.col-sm-5 wtf</div>
-  <div class="homemenu"  style="height:80vh;">.col-sm-5</div>
+  <div class="homemenu"  style="height:80vh;"> <img src="images/Upload.png" alt="Upload" style="height:250px;width:250px;margin-left:175px; margin-right:10px; margin-top:80px;"> <a href="music_insert.php"> <input style="margin-left:185px; margin-right:10px; margin-top:50px;"  type="submit" value="Upload Your Song"> </a> </div>
+  <div class="homemenu"  style="height:80vh;"> <a href="music_view.php"> <a href="music_view.php">  <input style="margin-left:195px; margin-right:10px; margin-top:235px;" type="submit" value="View Your Song"> </a> </div>
 
 </center>
 </body>

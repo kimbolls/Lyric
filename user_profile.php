@@ -1,7 +1,11 @@
 <?php 
 
 session_start();
-
+function slug($z){
+	$z = nl2br($z);
+	$z = str_replace("'", "'", $z);
+	return $z;
+}
 if(isset($_SESSION["UserID"])){
     ?>
     <head>
@@ -80,7 +84,7 @@ else
         {
             
             
-    ?>
+	?>
 <div id="main">
 <div class="maincolor">
   <button id="openNav" class="w3-button maincolor w3-xlarge" onclick="w3_open()">&#9776;</button>
@@ -97,8 +101,13 @@ else
 
 <br>	
 <img src="images\<?php echo $baris['User_Image']; ?>">
+<form action="user_profilEdit.php" method="post">	
 <h2><?php echo $userID; ?></h2>
 <p><?php echo $usertype; ?> User</p>
+<p><?php echo $baris['User_Bio']; ?> </p>
+
+<button type="submit" value="<? echo $baris['User_ID']; ?>">Edit profile </button>
+		</form>
 		</div>
 	</div>
 <?php

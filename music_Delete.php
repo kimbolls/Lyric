@@ -50,15 +50,16 @@ if(isset($_SESSION["UserID"])){
 
 <div class="maincolor">
   <button id="openNav" class="w3-button maincolor w3-xlarge" onclick="w3_open()">&#9776;</button>
-  <div class="w3-container">
-  <h1>Music Delete Details</h1>
+  <div class="w3-container"><center>
+  <h1>Hi-Fi</h1>
   </div>
   </div>
   <br><br>
 <center>
+    <h1>Music Delete Details</h1>
 <?php
 
-$songname = $_POST['songname'];
+$songID = $_POST['songID'];
 
 $host = "localhost";
 $user = "root";
@@ -73,7 +74,7 @@ if(!$link)
 }
 else
 {
-	$queryDelete = "delete from music where Song_Name = '$songname' ";
+	$queryDelete = "delete from music where Song_ID= '$songID'";
 	$resultDelete = mysqli_query($link,$queryDelete);
 	
 	if(!$resultDelete)
@@ -84,7 +85,7 @@ else
 	{
 		echo "Record has been deleted from database.";
 		echo "<br><br>";
-		echo "Click <a href='music_view.php'> Here </a> to view music list";
+		echo "<a class='cancel' href='user_profile.php'> View your Profile </a>";
 	}
 }
 

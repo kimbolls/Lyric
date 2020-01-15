@@ -120,8 +120,8 @@ echo "Your Music has been successfully uploaded!";
 	}
 }
 ?>
-<br>
-Click <a href="music_view.php"> HERE </a> to view your Musics 
+<br><br>
+<a class="cancel" href="user_profile.php">View Your Profile</a> 
 </center>
 </html>
 <?php

@@ -8,7 +8,17 @@ if(isset($_SESSION["UserID"])){
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="style.css" type="text/css">
+<style>
+	tr:nth-child(odd){
+  background-color:rgba(70, 65, 89,0.4);
+	}
+  tr:nth-child(even){
+  background-color:rgba(70, 65, 89,0);
+
+}
+</style>	
 <title> Hi-Fi - Music Registration </title>
+
 <body>
 	<script src="music_script.js">
 	</script>
@@ -29,15 +39,17 @@ if(isset($_SESSION["UserID"])){
   <button id="openNav" class="w3-button maincolor w3-xlarge" onclick="w3_open()">&#9776;</button>
   <div class="w3-container">
 <center>
-<h1> WELCOME, Hi <?php echo $_SESSION["UserID"];?> </h1>
+<h1>Hi-Fi</h1>
 
 
-<h1>Insert New Music</h1>
+
 	</div>
 </div>
 <div class="w3-container">
+<center>
+<h1>Insert New Music</h1>
 	<br><br>
-	<center>	
+		
 
 <form action="music_insertDB.php" method="POST" name="musicinput" enctype="multipart/form-data">
 
@@ -65,7 +77,7 @@ if(isset($_SESSION["UserID"])){
 </tr>
 <tr>
 	<th>Song Lyric </th>
-	<th><textarea name="songlyric" required></textarea></th>
+	<th><textarea name="songlyric" placeholder="Break lines using enter" required></textarea></th>
 </tr>
  <tr>
 	<th>Album Image</th>
@@ -78,8 +90,8 @@ if(isset($_SESSION["UserID"])){
 </tr>
 
 </table>
-<br><br>
-
+<br><br>	
+<a onclick="goBack()" class="cancel"> Back </a>
 <input type="submit" value="Submit">
 </form>
 </center>

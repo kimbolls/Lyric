@@ -16,16 +16,26 @@ if(isset($_SESSION["UserID"])){
 <html>
 
 <head><script src="music_script.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <link rel="stylesheet" href="MBD/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
   <link rel="stylesheet" href="MBD/css/mdb.min.css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" href="style.css" type="text/css">
+<style>
+	tr{
+  background-color:rgba(70, 65, 89,0.4);
+}
+
+tr:hover{
+  transition: .5s ease;
+  background-color:rgba(51, 47, 65, 0.4);
+}
+	</style>
 <title> Hi-Fi - Music Record </title></head>
 <body>
 <?php 
@@ -64,11 +74,13 @@ if(isset($_SESSION["UserID"])){
 <div class="maincolor">
   <button id="openNav" class="w3-button maincolor w3-xlarge" onclick="w3_open()">&#9776;</button>
   <div class="w3-container">
-  <h1>Music Delete</h1>
+	  <center>
+  <h1>Hi-Fi</h1>
   </div>
   </div>
   <br><br>
 <center>
+	<h1>Music Delete</h1><br>
 <?php
 
 $host = "localhost";
@@ -100,13 +112,16 @@ else
 	{
 		?>
 		<center>
-		<table border = "2" >
+		<table class="table table-hover">
+		<thead class="black white-text">
 		<tr>
-			<th>Album Image</th>
-			<th>Song Name</th>
-			<th>Album Name</th>
-			<th>Artist Name</th>
+			<th scope="col">Album Image</th>
+			<th scope="col">Song Name</th>
+			<th scope="col">Album Name</th>
+			<th scope="col">Artist Name</th>
 		</tr>
+		</thead>
+	<tbody>
 		<form action="music_Delete.php" name="DeleteForm" method="POST" onSubmit="return confirm('Are you sure?')">
 		
 		
@@ -115,8 +130,8 @@ else
 		{
 			?>
 			<tr>
-			<th>
-			<button type="submit" name="songname" class="hilang"value="<?php echo $baris['Song_Name']; ?>";></td>
+			<th scope="row">
+			<button type="submit" name="songID" class="hilang"value="<?php echo $baris['Song_ID']; ?>";></td>
 			<div class="view overlay">
   <img src="images\<?php echo $baris['Album_Image']; ?>" width="150px" class="img-fluid " alt="smaple image">
   <div class="mask flex-center rgba-white-strong">
@@ -136,12 +151,14 @@ else
 		</table>
 		<br>
 		</form>
-		<h8> Click on any Album Image to delete song </h8>
+		<h8> Click on any Album Image to delete song </h8><br><br>
+		<a onclick='goBack()' class='cancel'> Back </a>
 <?php
 	}
 else
 {
 	echo "No record found";
+	echo "<br><br><a onclick='goBack()' class='cancel'> Back </a>";
 }
 	}
 ?>

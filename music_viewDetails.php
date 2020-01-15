@@ -139,7 +139,7 @@ else
 
 
 <br>
-<a href="music_view.php"><p style="color:blue;"> Click here to go back </style></a>
+<a onclick="goBack()" class="cancel">Done</a>
   
 
 <?php

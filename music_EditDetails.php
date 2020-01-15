@@ -20,6 +20,24 @@ if(isset($_SESSION["UserID"])){
 <link rel="stylesheet" type="text/css" href="mystyle.css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" type="text/css" href="style.css">
+<style>
+	table{
+		border
+	}
+	tr:nth-child(odd){
+		background-color:rgba(70, 65, 89,0.4);
+	}
+	tr:nth-child(even){
+  background-color:rgba(70, 65, 89,0);
+}
+	td,th{
+		padding:5px;
+	}
+	tr:hover{
+  transition: .5s ease;
+  background-color:rgba(51, 47, 65, 0.4);
+}
+	</style>
 <title> Hi-Fi - Music Record </title>
 <body>
 <?php 
@@ -142,7 +160,7 @@ else
 			<input type="hidden" name="songID" value="<?php echo $baris['Song_ID']; ?>">
 			<input type="hidden" name="songstatus" value="<?php echo $baris['Song_Status']; ?>">
 			<br>
-			<a href="music_EditView.php" class="button"> Cancel </a>
+			<a href="music_EditView.php" class="cancel"> Cancel </a>
 			<input type="Submit" value="Update new details">
 			</form>
 			</center>
@@ -202,7 +220,7 @@ else
 			<input type="hidden" name="songgenre" value="<?php echo $baris['Song_Genre']; ?>">
 			<input type="hidden" name="songlyric" value="<?php echo $baris['Song_Lyric']; ?>">
 			<input type="hidden" name="albumimage" value="<?php echo $baris['Album_Image']; ?>">
-			<br><a href="music_EditView.php" class="button"> Cancel </a>
+			<br><a href="music_EditView.php" class="cancel"> Cancel </a>
 			<input type="Submit" value="Update new details">
 			</form>
 			</center>

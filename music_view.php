@@ -17,18 +17,17 @@ if(isset($_SESSION["UserID"])){
 
 
 <head><script src="music_script.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-
- <meta charset="UTF-8">
+<meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <link rel="stylesheet" href="MBD/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
   <link rel="stylesheet" href="MBD/css/mdb.min.css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="style.css" type="text/css">
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" type="text/css" href="style.css">
 <title> Hi-Fi - Music Record </title>
 <body>
 <?php 
@@ -67,11 +66,13 @@ if(isset($_SESSION["UserID"])){
 <div class="maincolor">
   <button id="openNav" class="w3-button maincolor w3-xlarge" onclick="w3_open()">&#9776;</button>
   <div class="w3-container">
-  <h1>Music Record</h1>
+  <center>
+  <h1>Hi-Fi</h1>
   </div>
   </div>
   <br>
-<center>
+  <center>
+	<h1>Music Record</h1><br>
 <?php
 
 $host = "localhost";
@@ -107,21 +108,23 @@ else
 	{
 		?>
 		<center>
-		<table border = "2" >
+		<table class="table">
+		<thead class="black white-text">
 		<tr>
-			<th>Album Image</th>
-			<th>Song Name</th>
-			<th>Album Name</th>
-			<th>Artist Name</th>
-			
-		</tr>
+			<th scope="col">Album Image</th>
+			<th scope="col">Song Name</th>
+			<th scope="col">Album Name</th>
+			<th scope="col">Artist Name</th>
 		
+		</tr>
+		</thead>
+		<tbody>
 		<?php	
 			while($baris = mysqli_fetch_array($resultGet,MYSQLI_BOTH)){
 				?>
-			<center>	<form action="music_viewDetails.php" method="POST">
+				<form action="music_viewDetails.php" method="POST">
 				<tr>
-				<td><button type="submit" class="hover hilang" name="songID" value="<?php echo $baris['Song_ID']; ?>";>
+				<td  scope="row"><button type="submit" class="hover hilang" name="songID" value="<?php echo $baris['Song_ID']; ?>";>
 				<div class="view overlay">
   <img src="images\<?php echo $baris['Album_Image']; ?>" width="150px" class="img-fluid " alt="smaple image">
   <div class="mask flex-center rgba-white-strong">
@@ -133,10 +136,11 @@ else
 					<td><?php echo $baris['Artist_Name']; ?></td>
 						
 				</tr>
-
+				
 	
 <?php
 } ?>
+</tbody>
 				</table>
 <br>
 

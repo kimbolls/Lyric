@@ -19,15 +19,21 @@ if(isset($_SESSION["UserID"])){
 </head>
 
 <head><script src="music_script.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <link rel="stylesheet" href="MBD/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
   <link rel="stylesheet" href="MBD/css/mdb.min.css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" href="style.css" type="text/css">
+<style>
+	tr:nth-child(odd){
+  background-color:rgba(70, 65, 89,0.4);
+}
+	</style>
 <title> Hi-Fi - Music Record </title></head>
 <body>
 <?php 
@@ -93,7 +99,7 @@ else
 	else
 	{	
 	$UserID = $_SESSION['UserID'];
-	$queryGet = "select * from music where UserID = '$UserID'";
+	$queryGet = "select * from music where UserID = '$UserID' AND Song_Status = 'Pending'";
 	}
 	$resultGet = mysqli_query($link,$queryGet);
 	
@@ -102,13 +108,14 @@ else
 	if($row > 0){
 	if(!$resultGet)
 	{
-		die ("Invalid Quety - get Music list: ".mysqli_error($link));
+		die ("Invalid Query - get Music list: ".mysqli_error($link));
 	}
 	else
 	{
 		?>
 		<center>
-		<table border = "2" >
+		<table class="table table-hover" >
+		<thead class="black white-text">
 		<tr>
 			<th>Album Image</th>
 			<th>Song Name</th>
@@ -116,13 +123,14 @@ else
 			<th>Artist Name</th>
 			
 		</tr>
-		
+		</thead>
+	<tbody>
 		<?php	
 			while($baris = mysqli_fetch_array($resultGet,MYSQLI_BOTH)){
 				?>
 			<center>	<form action="music_EditDetails.php" method="POST">
 				<tr>
-				<td><button type="submit" class="hover hilang" name="songID" value="<?php echo $baris['Song_ID']; ?>";>
+				<td scope="row"><button type="submit" class="hover hilang" name="songID" value="<?php echo $baris['Song_ID']; ?>";>
 				<div class="view overlay">
   <img src="images\<?php echo $baris['Album_Image']; ?>" width="150px" class="img-fluid " alt="smaple image">
   <div class="mask flex-center rgba-white-strong">
@@ -137,6 +145,7 @@ else
 <?php 
 	}
  ?>
+ </tbody>
 	</table>
 	<br>
 	</form>
@@ -147,7 +156,8 @@ else
 else
 {
 	?><center><?php
-	echo "No record found";
+	echo "No editable record found (You can only edit music on pending status)<br><br>";
+	echo "<a onclick='goBack()' class='cancel'> Back </a>";
 }
 ?>
 

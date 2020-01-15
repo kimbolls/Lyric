@@ -45,7 +45,7 @@ Search:	<input type="text" name="search" required>
  </div>
  
   <div class="homemenu"  style="height:80vh;"> <a href="music_view.php"> <input style="margin-left:220px; margin-right:10px; margin-top:235px;"  type="submit" value="View Songs"> </a> </div>
-   <div class="homemenu"  style="height:80vh;"> <a href="music_editview.php"> <a href="music_view.php">  <input style="margin-left:220px; margin-right:10px; margin-top:235px;" type="submit" value="Edit Songs"> </a> </div>
+   <div class="homemenu"  style="height:80vh;"> <a href="music_EditView.php"> <input style="margin-left:220px; margin-right:10px; margin-top:235px;" type="submit" value="Edit Songs"> </a> </div>
 
 	
 <?php 

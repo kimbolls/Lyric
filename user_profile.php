@@ -110,7 +110,7 @@ else
 <?php
 		}
 		if($_SESSION["UserType"]=="Admin"){
-			$queryGet = "select * from music where Song_Status = 'Accepted'";
+			$queryGet = "select * from music where Song_Status = 'Approved'";
 		}else{
 
 		
@@ -120,8 +120,9 @@ else
 	?>
 	<div class="col">
 		<div class="rightside">
-		<center><h2>Your Musics </h2></center>
-	<?php 
+		<?php if($_SESSION["UserType"]=="Admin"){ echo " <center><h2>Your Approved Musics </h2></center>";}else{ echo"
+			<center><h2>Your  Musics </h2></center>";  }
+	 
 	if(!$resultGet)
 	{
 		die ("Invalid Query - get Music list: ".mysqli_error($link));
@@ -150,7 +151,7 @@ $row = mysqli_num_rows($resultGet);
 			<th scope="col">Song Name</th>
 			<th scope="col">Album Name</th>
 			<th scope="col">Artist Name</th>
-			<th scope="col">Song Status </th>
+			<th scope="col"><?php if($_SESSION["UserType"]!="Admin"){ echo "Song Status";}else{echo "Username";} ?></th>
 			<th scope="col">Play Song </th>
 		</tr>
 	</thead>
@@ -171,7 +172,9 @@ $row = mysqli_num_rows($resultGet);
 					<td><?php echo $baris['Song_Name']; ?></td>
 					<td><?php echo $baris['Album_Name']; ?></td>
 					<td><?php echo $baris['Artist_Name']; ?></td>
-					<td><b><?php if($baris['Song_Status']=="Pending"){echo "<font color='red'>";}else{echo "<font color='green'>";}echo $baris['Song_Status']; ?></b></td>
+					<td><b><?php if($_SESSION["UserType"]!="Admin"){if($baris['Song_Status']=="Pending"){echo "<font color='red'>";}
+					else{echo "<font color='green'>";}echo $baris['Song_Status']; }else{
+						echo $baris['UserID']; }?></b></td>
 					<td><audio controls>
   <source src="musics/<?php echo $baris['Song_Player']; ?>" type="audio/mp3"></td>
 				</tr>
@@ -187,10 +190,15 @@ $row = mysqli_num_rows($resultGet);
 		</tbody>
 		</table>
 		<p class="disclaimer"> You can click on album image to <font style="color:green;font-weight:bold">view</font> more detailed information about the song </p>
-	
-
- <?php
+	<?php	if($_SESSION["UserType"]=="Admin"){?> <center>
+	<a href="music_EditView.php" class='cancel'>Approve Music </a></center<?php }else{
+		?><center>Music Approvements is not guaranteed<br><br>
+		<a href="music_insert.php" class='cancel'> Add Music </a></center><?php
+		}
 	}
+
+ 
+	
 	if(!mysqli_num_rows($resultGet))
 {
 	if($_SESSION["UserType"]=="Admin"){?> <center>You Have not accepted any music yet<br><br>

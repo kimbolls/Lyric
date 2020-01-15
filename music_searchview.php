@@ -92,8 +92,6 @@ else
 	}
 	else
 	{
-		while($baris = mysqli_fetch_assoc($resultGet))
-        {
             ?>
 
 
@@ -104,19 +102,18 @@ else
 			<th>Song Name</th>
 			<th>Album Name</th>
 			<th>Artist Name</th>
-			
+			<?php
+					while($baris = mysqli_fetch_assoc($resultGet))
+        {
+			?>
 		</tr>
-		
-		<?php	
-			while($baris = mysqli_fetch_array($resultGet,MYSQLI_BOTH)){
-				?>
 			<center>	<form action="music_viewDetails.php" method="POST">
 				<tr>
 				<td><button type="submit" class="hover hilang" name="songID" value="<?php echo $baris['Song_ID']; ?>";>
 				<div class="view overlay">
   <img src="images\<?php echo $baris['Album_Image']; ?>" width="150px" class="img-fluid " alt="smaple image">
   <div class="mask flex-center rgba-white-strong">
-      <p class="green-text"><b>View Song</b></p>
+      
   </div>
 			</button></form></td>
 					<td><?php echo $baris['Song_Name']; ?></td>
@@ -124,10 +121,7 @@ else
 					<td><?php echo $baris['Artist_Name']; ?></td>
 						
 				</tr>
-
-	
-<?php
-} ?>
+		<?php } ?>
 				</table>
 <br>
 
@@ -135,7 +129,6 @@ else
   
 
 <?php
-			}
 }
 	}
 else
@@ -160,5 +153,3 @@ else{
 }
 
 ?>
-
-$Query = "Select * from music where Song_Status='Approved' And Song_Name LIKE '%$search%' OR Song_Status='Approved' And Album_Name LIKE '%$search%' OR Song_Status='Approved' And  Artist_Name LIKE '%$search%' OR Song_Status='Approved' And  Song_Genre LIKE '%$search%'";

@@ -97,52 +97,41 @@ else
             ?>
 
 
-  <br><img class="card-img-top" src="images\<?php echo $baris['Album_Image']; ?>" alt="Album Image Here">
-  <p class="card-text"><audio controls>
-  <source src="musics/<?php echo $baris['Song_Player']; ?>" type="audio/mp3"></p>
+  		<center>
+		<table border = "2" >
+		<tr>
+			<th>Album Image</th>
+			<th>Song Name</th>
+			<th>Album Name</th>
+			<th>Artist Name</th>
+			
+		</tr>
+		
+		<?php	
+			while($baris = mysqli_fetch_array($resultGet,MYSQLI_BOTH)){
+				?>
+			<center>	<form action="music_viewDetails.php" method="POST">
+				<tr>
+				<td><button type="submit" class="hover hilang" name="songID" value="<?php echo $baris['Song_ID']; ?>";>
+				<div class="view overlay">
+  <img src="images\<?php echo $baris['Album_Image']; ?>" width="150px" class="img-fluid " alt="smaple image">
+  <div class="mask flex-center rgba-white-strong">
+      <p class="green-text"><b>View Song</b></p>
+  </div>
+			</button></form></td>
+					<td><?php echo $baris['Song_Name']; ?></td>
+					<td><?php echo $baris['Album_Name']; ?></td>
+					<td><?php echo $baris['Artist_Name']; ?></td>
+						
+				</tr>
 
-<table border="1">
-<tr>
-<th colspan="2"><h3 class="card-title" ><b><?php echo $baris['Song_Name']; ?></b></h5> </th>
-
-</tr>
-<tr>
-  <td class="card-text">Artist : </td>
-  <th><p class="card-text"><?php echo $baris['Artist_Name']; ?></p></th>
-</tr>
-<tr>
-  <td class="card-text">Album Name : </td>
-  <th><p class="card-text"><?php echo $baris['Album_Name']; ?></p></th>
-</tr>
-<tr>
-  <td class="card-text">Featuring Artist : </td>
-  <th><p class="card-text"><?php echo $baris['Featuring_Artist_Name']; ?></p></th>
-</tr>
-<tr>
-  <td class="card-text">Song Genre : </td>
-  <th><p class="card-text"><?php echo $baris['Song_Genre']; ?></p></th>
-</tr>
-
-<tr>
-  <td class="card-text">Song Status : </td>
-  <th><p class="card-text"><?php if($baris['Song_Status']=="Pending"){echo "<font color='red'>";}else{echo "<font color='green'>";}
-   echo $baris['Song_Status']; ?></p></th>
-</tr>
-<tr>
-  <td class="card-text">Uploaded by : </td>
-  <th><p class="card-text"><?php echo $baris['UserID']; ?></p></th>
-</tr>
-</table>
-
-    
-  <p class="card-text">Song Lyrics :</p>
-  
-  <p class="card-text"><?php echo slug($baris['Song_Lyric']); ?></p>
-        
-
-
+	
+<?php
+} ?>
+				</table>
 <br>
-<a href="music_view.php"><p style="color:blue;"> Click here to go back </p></a>
+
+<p class="disclaimer"> You can click on any Album Image to view more detailed information about the music </p>
   
 
 <?php
@@ -171,3 +160,5 @@ else{
 }
 
 ?>
+
+$Query = "Select * from music where Song_Status='Approved' And Song_Name LIKE '%$search%' OR Song_Status='Approved' And Album_Name LIKE '%$search%' OR Song_Status='Approved' And  Artist_Name LIKE '%$search%' OR Song_Status='Approved' And  Song_Genre LIKE '%$search%'";

@@ -115,7 +115,6 @@ else
 			<th scope="col">Song Name</th>
 			<th scope="col">Album Name</th>
 			<th scope="col">Artist Name</th>
-		
 		</tr>
 		</thead>
 		<tbody>

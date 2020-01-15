@@ -157,7 +157,7 @@ else
 	}
 else
 {
-	echo "No record found";
+	echo "No record found. You can only delete your own records";
 	echo "<br><br><a onclick='goBack()' class='cancel'> Back </a>";
 }
 	}

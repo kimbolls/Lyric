@@ -19,6 +19,11 @@ if(isset($_SESSION["UserID"])){
 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="style.css" type="text/css">
+<style>
+  td,th{
+    padding:5px;
+  }
+  </style>
 <title> Hi-Fi - Music Record </title>
 </head>
 <body>
@@ -97,12 +102,14 @@ else
   <br><img class="card-img-top" src="images\<?php echo $baris['Album_Image']; ?>" alt="Album Image Here">
   <p class="card-text"><audio controls>
   <source src="musics/<?php echo $baris['Song_Player']; ?>" type="audio/mp3"></p>
-
-<table border="1">
+<br><br>
+<table class="table">
+<thead class="black white-text">
 <tr>
-<th colspan="2"><h3 class="card-title" ><b><?php echo $baris['Song_Name']; ?></b></h5> </th>
-
+<th style="background-color:rgba(81, 67, 131, 0.4)" colspan="2"><h3 class="card-title" ><b><?php echo $baris['Song_Name']; ?></b></h5> </th>
 </tr>
+</thead>
+<tbody>
 <tr>
   <td class="card-text">Artist : </td>
   <th><p class="card-text"><?php echo $baris['Artist_Name']; ?></p></th>
@@ -129,6 +136,7 @@ else
   <td class="card-text">Uploaded by : </td>
   <th><p class="card-text"><?php echo $baris['UserID']; ?></p></th>
 </tr>
+</tbody>
 </table>
 
     
@@ -139,7 +147,7 @@ else
 
 
 <br>
-<a onclick="goBack()" class="cancel">Done</a>
+<a onclick="goBack()"class="cancel">Done</a>
   
 
 <?php

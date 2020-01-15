@@ -68,6 +68,7 @@ if(isset($_SESSION["UserID"])){
   <a href="music_DeleteView.php" class="w3-bar-item w3-button"> Delete Music </a>
   <a href="logout.php" class="w3-bar-item w3-button">Logout </a><br>
 </div>
+   <?php } ?>
 <div id="main">
 
 <div class="maincolor">
@@ -79,7 +80,7 @@ if(isset($_SESSION["UserID"])){
   <br><br>
 
     <?php 
-    }
+    
    
 
 
@@ -95,16 +96,10 @@ if(!$link)
 	die ("Could not connect: " .mysqli_connect_error($link));
 }
 else
-{
-	if($_SESSION['UserType'] == "Admin")
-	{
-	$queryGet = "select * from music";
-	}
-	else
-	{	
+{	
 	$UserID = $_SESSION['UserID'];
 	$queryGet = "select * from user where UserID = '$userID'";
-	}
+	
 	$resultGet = mysqli_query($link,$queryGet);
 	
 	if(!$resultGet)

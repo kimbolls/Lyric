@@ -17,7 +17,6 @@ body {
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="style.css" type="text/css">
 <title> Hi-Fi - Music Registration </title>
-
 <body>
 <?php 
     if($_SESSION["UserType"]=="Admin"){
@@ -30,6 +29,25 @@ body {
   <a href="music_EditView.php" class="w3-bar-item w3-button"> Edit Music </a> 
 <a href="logout.php" class="w3-bar-item w3-button">Logout </a><br>
     </div>
+	<div id="main">
+
+	<div class="maincolor">
+  <button id="openNav" class="w3-button maincolor w3-xlarge" onclick="w3_open()">&#9776;</button>
+  <div class="w3-container">
+	<center>
+	<h1> WELCOME, Hi <?php echo $_SESSION["UserID"];?> </h1>
+
+<form name="Search" action="music_searchview.php" method="POST">
+Search:	<input type="text" name="search" required>
+<input type="submit" value="Go">
+</form>
+ </div>
+ </div>
+ 
+  <div class="homemenu"  style="height:80vh;"> <a href="music_view.php"> <input style="margin-left:220px; margin-right:10px; margin-top:235px;"  type="submit" value="View Songs"> </a> </div>
+   <div class="homemenu"  style="height:80vh;"> <a href="music_editview.php"> <a href="music_view.php">  <input style="margin-left:220px; margin-right:10px; margin-top:235px;" type="submit" value="Edit Songs"> </a> </div>
+
+	
 <?php 
     }
     else{
@@ -45,11 +63,6 @@ body {
   <a href="music_DeleteView.php" class="w3-bar-item w3-button"> Delete Music </a>
   <a href="logout.php" class="w3-bar-item w3-button">Logout </a><br>
 </div>
-
-
-    <?php 
-    }
-    ?>
 <div id="main">
 
 <div class="maincolor">
@@ -64,10 +77,15 @@ Search:	<input type="text" name="search" required>
 </form>
  </div>
  </div>
+ 
+  <div class="homemenu"  style="height:80vh;"> <a href="music_insert.php"> <input style="margin-left:195px; margin-right:10px; margin-top:235px;"  type="submit" value="Upload Your Song"> </a> </div>
+   <div class="homemenu"  style="height:80vh;"> <a href="music_view.php">  <input style="margin-left:195px; margin-right:10px; margin-top:235px;" type="submit" value="View Your Song"> </a> </div>
 
-
-  <div class="homemenu"  style="height:80vh;"> <img src="images/Upload.png" alt="Upload" style="height:250px;width:250px;margin-left:175px; margin-right:10px; margin-top:80px;"> <a href="music_insert.php"> <input style="margin-left:185px; margin-right:10px; margin-top:50px;"  type="submit" value="Upload Your Song"> </a> </div>
-  <div class="homemenu"  style="height:80vh;"> <a href="music_view.php"> <a href="music_view.php">  <input style="margin-left:195px; margin-right:10px; margin-top:235px;" type="submit" value="View Your Song"> </a> </div>
+ 
+	
+    <?php 
+    }
+    ?>
 
 </center>
 </body>

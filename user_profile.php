@@ -108,11 +108,19 @@ else
 		</div>
 	</div>
 <?php
-}
-    $queryGet = "select * from music where UserID = '$userID'";
+		}
+		if($_SESSION["UserType"]=="Admin"){
+			$queryGet = "select * from music where Song_Status = 'Accepted'";
+		}else{
+
+		
+	$queryGet = "select * from music where UserID = '$userID'";
+		}
 	$resultGet = mysqli_query($link,$queryGet);
 	?>
-	
+	<div class="col">
+		<div class="rightside">
+		<center><h2>Your Musics </h2></center>
 	<?php 
 	if(!$resultGet)
 	{
@@ -134,11 +142,8 @@ $row = mysqli_num_rows($resultGet);
 	{
 		?>
 		</center>
-		<div class="col">
-		<div class="rightside">
 		
 		<table class="table table-hover">
-			<center><h2>Your Musics </h2></center>
 			<thead class="black white-text">
 		<tr>
 			<th scope="col">Album Image</th>
@@ -175,24 +180,36 @@ $row = mysqli_num_rows($resultGet);
 	
 <?php
             }    
-        }
+		}
+	}
+				
 		?> 
 		</tbody>
 		</table>
 		<p class="disclaimer"> You can click on album image to <font style="color:green;font-weight:bold">view</font> more detailed information about the song </p>
-	</div>
-	</div>
+	
 
  <?php
-    }
-    else
-echo "You have no music uploaded";
-        }
-    }
+	}
+	if(!mysqli_num_rows($resultGet))
+{
+	if($_SESSION["UserType"]=="Admin"){?> <center>You Have not accepted any music yet<br><br>
+	<a href="music_EditView.php" class='cancel'>Accept now </a></center<?php }else{
+		?><center>You Have no music record<br><br>
+		<a href="music_insert.php" class='cancel'> Add now </a></center><?php
+		}
+	} ?>
+	</div>
+	</div>
+	<?php
 }
+	
+    
+    }
 }
 
-}
+
+}	
 else{
     echo "No session exists or session has expired. Please log in again. <br>";
     echo "<a href=loginmenu.html> Login </a>";

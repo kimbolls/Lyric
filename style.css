@@ -103,7 +103,7 @@ audio {
 }
 
 
-input[type=text] {
+input[type=text],input[type=password] {
   color:white;
   outline:none;
   padding: 6px 10px;

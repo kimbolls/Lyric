@@ -36,7 +36,7 @@ else
         }
         else{
             echo "<p style='color:red;'>Wrong Password!!! </p>";
-            echo  "<br>Click <a href='login.html'> here </a> to LOGIN again. ";
+            echo  "<br>Click <a href='loginmenu.html'> here </a> to LOGIN again. ";
         }
     }
 }

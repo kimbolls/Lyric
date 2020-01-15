@@ -62,6 +62,15 @@ body {
 Search:	<input type="text" name="search" required>
 <input type="submit" value="Go">
 </form>
+ </div>
+ </div>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+ <div class="container-fluid">
+<div class="col">
+  <div class="col-sm-5 homemenu"  style="height:80vh;">.col-sm-5 wtf</div>
+  <div class="col-sm-5 homemenu"  style="height:80vh;">.col-sm-5</div>
+</div>
+</div>
 </center>
 </body>
 </html>
@@ -73,6 +82,6 @@ else{
 }
 
 ?>
-    </div>
-</div>
+   
+
 

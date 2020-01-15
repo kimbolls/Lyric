@@ -15,8 +15,15 @@ if(isset($_SESSION["UserID"])){
 
 <head><script src="music_script.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <link rel="stylesheet" href="MBD/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <link rel="stylesheet" href="MBD/css/mdb.min.css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" href="style.css" type="text/css">
 <title> Hi-Fi - Music Record </title>
 <body>
 <?php 

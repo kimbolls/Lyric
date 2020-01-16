@@ -81,12 +81,12 @@ if(isset($_SESSION["UserID"])){
 </tr>
  <tr>
 	<th>Album Image</th>
-	<th><input type="file" name="albumimage" accept="image/*"></th>
+	<th><input type="file" name="albumimage" accept="image/*" required></th>
 </tr>
 
 <tr>
 	<th>Music Audio </th>
-	<th><input type="file" name="songplayer" accept=".mp3" ></th>
+	<th><input type="file" name="songplayer" accept=".mp3" required></th>
 </tr>
 
 </table>

@@ -4,11 +4,7 @@ session_start();
 if(isset($_SESSION["UserID"])){
     ?>
 
-<style>
-body {
-	background-image: url('images/HomepageBG.jpg')
-}
-</style>
+
 
 <html>
 <head>
@@ -94,8 +90,8 @@ Search:	<input type="text" name="search" required>
 <?php 
 }
 else{
-    echo "No session exists or session has expired. Please log in again. <br>";
-    echo "<a href=loginmenu.html> Login </a>";
+    echo "<center>No session exists or session has expired. Please log in again. <br>";
+    echo "<a href=loginmenu.html> Login </a></center>";
 }
 
 ?>

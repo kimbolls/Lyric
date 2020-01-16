@@ -12,7 +12,8 @@ if(isset($_SESSION["UserID"])){
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="style.css" type="text/css">
-<title> Hi-Fi - Music Registration </title>
+<title> Hi-Fi - HomePage </title>
+
 <body>
 <?php 
     if($_SESSION["UserType"]=="Admin"){
@@ -31,7 +32,7 @@ if(isset($_SESSION["UserID"])){
   <button id="openNav" class="w3-button maincolor w3-xlarge" onclick="w3_open()">&#9776;</button>
   <div class="w3-container">
 	<center>
-	<h1> WELCOME, Hi <?php echo $_SESSION["UserID"];?> </h1>
+	<h1> Welcome to Hi-Fi, <?php echo $_SESSION["UserID"];?> </h1>
 
 <form name="Search" action="music_searchview.php" method="POST">
 Search:	<input type="text" name="search" required>
@@ -40,8 +41,8 @@ Search:	<input type="text" name="search" required>
  </div>
  </div>
  
-  <div class="homemenu"  style="height:80vh;"> <a href="music_view.php"> <input style="margin-left:220px; margin-right:10px; margin-top:235px;"  type="submit" value="View Songs"> </a> </div>
-   <div class="homemenu"  style="height:80vh;"> <a href="music_EditView.php"> <input style="margin-left:220px; margin-right:10px; margin-top:235px;" type="submit" value="Edit Songs"> </a> </div>
+  <div class="homemenu"  style="height:80vh;"><center> <a href="music_view.php"> <input style="margin-top:235px;"  type="submit" value="View Songs"> </a> </center></div>
+   <div class="homemenu"  style="height:80vh;"> <center><a href="music_EditView.php"> <input style="; margin-top:235px;" type="submit" value="Edit Songs"> </a></center> </div>
 
 	
 <?php 
@@ -74,8 +75,15 @@ Search:	<input type="text" name="search" required>
  </div>
  </div>
  
-  <div class="homemenu"  style="height:80vh;"> <a href="music_insert.php"> <input style="margin-left:195px; margin-right:10px; margin-top:235px;"  type="submit" value="Upload Your Song"> </a> </div>
-   <div class="homemenu"  style="height:80vh;"> <a href="music_view.php">  <input style="margin-left:195px; margin-right:10px; margin-top:235px;" type="submit" value="View Your Song"> </a> </div>
+  <div class="homemenu"  style="height:80vh;">
+  <center>
+<h1>Your Music Archive</h1>
+<h3> Hi-Fi provides you with storing all your great musics </h3>
+   <a href="music_insert.php"> <input style="margin-right:10px; margin-top:100px;"  
+   type="submit" value="Upload Your Song"> </a> </center></div>
+   <div class="homemenu"  style="height:80vh;">
+   <center> <a href="music_view.php">  <input style="margin-top:100px;" 
+   type="submit" value="View Your Song"> </a></center> </div>
 
  
 	

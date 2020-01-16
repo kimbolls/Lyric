@@ -129,7 +129,7 @@ if ($uploadOk == 0) {
 	{
 		echo "Record has been updated into database";
 		echo "<br><br>";
-		echo "Click <a href='music_view.php'> here </a> to view Music list";
+		echo "<a class='cancel' href='user_profile.php'> View Your Profile </a>";
 	}
 }
 ?>
